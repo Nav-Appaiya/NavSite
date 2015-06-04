@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nav Appaiya - {% block title %}Welcome{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-lumen.css') }}" media="screen">
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/bootswatch.min.css') }}">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
+
+    {% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/app/html5shiv/dist/html5shiv.js') }}"></script>
+    <script src="{{ asset('bundles/app/respond/dest/respond.min.js') }}"></script>
+    <![endif]-->
+
+    <!-- Google Anlaytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-61166640-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- ./Google Anlaytics -->
+</head>
+<body>
+<!-- Hello, this is Nav ;) -->
+<div class="navbar navbar-default navbar-fixed-top navbar-brand-centered">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Nav Appaiya</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ path('project_index') }}"> <i class="fa fa-folder-open fa-fw"></i> Projects</a>
+                </li>
+                <li>
+                    <a href="{{ path('nav_about') }}"> <i class="fa fa-info fa-fw"></i> About</a>
+                </li>
+                <li>
+                    <a href="{{ path('nav_contact') }}"> <i class="fa fa-question fa-fw"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}"></a>
+                </li>
+            </ul>
+
+            <!-- Right side Navigation -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown right">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user"></i>
+                        {{ app.user }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% if app.user == false %}
+                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in fa-fw"></i>Login</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
+                            <li class="divider"></li>W
+                        {% endif %}
+                        <li><a href="{{ path('project_index') }}"><i class="fa fa-folder-open fa-fw"></i> Projects</a></li>
+                        <li><a href="{{ path('nav_about') }}"><i class="fa fa-info fa-fw"></i> About</a></li>
+                        <li><a href="http://github.com/nav-appaiya"><i class="fa fa-github fa-fw"></i> Github</a></li>
+                        <li><a href="{{ path('nav_contact') }}"><i class="fa fa-question fa-fw"></i> Contact</a></li>
+                        {% if app.user %}
+                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- ./Nav :) -->
+<div class="container">
+    {% block body %}{% endblock %}
+
+    {% block javascripts %}
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/app/js/bootwatch.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/app/js/script.js') }}"></script>
+    {% endblock %}
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text pull-left">© 2015 - Site Built Nav Appaiya</p>
+    </div>
+</div>
+
+</body>

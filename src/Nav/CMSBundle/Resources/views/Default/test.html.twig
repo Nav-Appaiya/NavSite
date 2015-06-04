@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1>Testcontroller</h1>
+
+                        <p class="lead">Stay testing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ dump(app.session.get('flashes')) }}
+        </div>
+    </div>
+{% endblock %}

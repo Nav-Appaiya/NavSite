@@ -1,0 +1,43 @@
+# Routing for the TaskBundle
+# 30 may 2015 by Nav Appaiya
+
+# List all Tasks
+task_index:
+    path:     /
+    defaults: { _controller: "NavTaskBundle:Task:index" }
+
+# Show detail on a Task
+task_show:
+  path: /show/{id}
+  defaults: { _controller: "NavTaskBundle:Task:show" }
+
+# Display create form new Task
+task_new:
+  path: /new
+  defaults: { _controller: "NavTaskBundle:Task:new" }
+
+# Create Route form data processing
+# @requirements = This makes this route only accept post requests
+task_create:
+  path: /create
+  defaults: { _controller: "NavTaskBundle:Task:create"}
+  requirements: { _method: post }
+
+# Show edit form
+task_edit:
+  path: /edit/{id}
+  defaults: { _controller: "NavTaskBundle:Task:edit" }
+
+# Route for postdata from update form
+# @Requirements = use the pipe for multiple methods (post|put|get etc..)
+task_update:
+  path: /update/{id}
+  defaults: { _controller: "NavTaskBundle:Task:update"}
+  requirements: { _method: post|put }
+
+# Route for deleting tasks
+# This will not lead into a view, but will redirect.
+task_delete:
+  path: /delete/{id}
+  defaults: { _controller: "NavTaskBundle:Book:delete" }
+  requirements: { _method: post|delete }

@@ -1,0 +1,97 @@
+{% extends "@NavCMS/layout.html.twig" %}
+
+{% block body %}
+    {% block fos_user_content %}
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong class="">Login</strong>
+                    </div>
+                    <div class="panel-body">
+                        {% if error %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">�</button>
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+                        <form class="form-horizontal"
+                              role="form"
+                              action="{{ path("fos_user_security_check") }}"
+                              method="post">
+
+                            <input type="hidden"
+                                   name="_csrf_token"
+                                   value="{% render(controller('NavCMSBundle:Security:getToken')) %}"
+                                    />
+
+                            <!-- Username -->
+                            <div class="form-group">
+                                <label for="username" class="col-sm-3 control-label">
+                                    {{ 'security.login.username'|trans }}
+                                </label>
+
+                                <div class="col-sm-9">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="username"
+                                           placeholder="Email"
+                                           required="required"
+                                           value="{{ last_username }}"
+                                           name="_username"
+                                            />
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password"
+                                       class="col-sm-3 control-label">
+                                    {{ 'security.login.password'|trans }}
+                                </label>
+
+                                <div class="col-sm-9">
+                                    <input type="password"
+                                           class="form-control"
+                                           id="password"
+                                           name="_password"
+                                           placeholder="Password"
+                                           required="required">
+                                </div>
+                            </div>
+
+                            <!-- Remember me -->
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <div class="checkbox">
+                                        <label class="">
+                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+                                            {{ 'security.login.remember_me'|trans }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit & Reset -->
+                            <div class="form-group last">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit"
+                                            class="btn btn-success btn-sm"
+                                            id="_submit"
+                                            name="_submit">
+                                        {{ 'security.login.submit'|trans }}
+                                    </button>
+                                    <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Register @PanelFooter @TODO: Nav  -->
+                    <div class="panel-footer">Not Registered?
+                        <a href="{{ path('fos_user_registration_register') }}   ">Register here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock fos_user_content %}
+{% endblock %}

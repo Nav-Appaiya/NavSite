@@ -1,0 +1,15 @@
+# Routing Projects
+# 1 June 2015 by Nav Appaiya
+
+# Projects
+project_index:
+    path: /
+    defaults: { _controller: AppBundle:Page:project }
+
+# Projecttodo
+project_todo:
+    path:     /todo
+    defaults: { _controller: AppBundle:Todo:index }
+
+
+

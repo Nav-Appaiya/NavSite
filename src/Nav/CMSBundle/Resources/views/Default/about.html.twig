@@ -1,0 +1,80 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 col-sm-6">
+                        <h1>About</h1>
+
+                        <p class="lead">Stay socializing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="list-group-item-heading">Hello there!</h4>
+
+            <p class="list-group-item-text">
+                My Name is Nav Appaiya, but you can call me Nav. I am a 23 year old Student from The Netherlands
+                with a passion for programming. Especially getting into back-end PHP development is what I like
+                to do on a regular basis.
+            </p>
+        </div>
+        <!-- Todo: Get Tweets from @usbstikje and display them -->
+        <!-- Use the tweetbundle for fetching the tweets -->
+        <div class="col-md-4">
+            <div>
+                {#Tweets from USBSTIKJE#}
+            </div>
+        </div>
+
+        <div class="col-md-4 social">
+            <div class="list-group">
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">Social Media</h4>
+
+                    <p class="list-group-item-text">
+                        <a href="https://www.facebook.com/NavAppaiya"><i class="fa fa-lg fa-facebook"></i></a>
+                        <a href="https://twitter.com/navvvv"><i class="fa fa-lg fa-twitter"></i></a>
+                        <a href="https://plus.google.com/+NavAppaiya"><i class="fa fa-lg fa-google-plus"></i></a>
+                        <a href="https://github.com/Nav-Appaiya"><i class="fa fa-lg fa-github"></i></a>
+                        <a href="https://www.pinterest.com/navappa/"><i class="fa fa-lg fa-pinterest"></i></a>
+                        <a href="https://nl.linkedin.com/pub/nav-appaiya/75/7b9/6bb"><i
+                                    class="fa fa-lg fa-linkedin"></i></a>
+                        <a href="http://stackoverflow.com/users/4760857/nav-nirojan-appaiya"><i
+                                    class="fa fa-lg fa-stack-overflow"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h2>Mozilla Open Badges</h2>
+            </div>
+            {% for row in badges|batch(2) %}
+                <div class="row">
+                    {% for badge in row %}
+                        <div class="col-md-6">
+                            <img src="{{ badge.imageUrl }}" alt="badge" class="badges img-responsive pull-left"/>
+                            <blockquote class="pull-left">
+                                <h3>{{ badge.assertion.badge.name }}</h3>
+
+                                <p>{{ badge.assertion.badge.description }}</p>
+                                <small>Achieved on {{ badge.assertion.issued_on }}</small>
+                            </blockquote>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

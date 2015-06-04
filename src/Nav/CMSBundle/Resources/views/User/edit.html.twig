@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme edit_form 'NavCMSBundle:Form:bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block body -%}
+
+    <h1 class="page-header">User edit</h1>
+
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            {{ form(edit_form) }}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="list-group">
+                <a href="#" class="list-group-item active text-center" aria-disabled="true">
+                    Actions
+                </a>
+                <a href="{{ path('cms_user') }}" class="list-group-item text-center">Back to the list</a>
+                {{ form_widget(delete_form.submit, {'attr': {'class': 'list-group-item text-center btn btn-block'}}) }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

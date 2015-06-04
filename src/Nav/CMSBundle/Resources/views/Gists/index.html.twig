@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1>Gists</h1>
+
+                        <p class="lead">Stay Gisted.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style type="text/css">
+        .gist {
+            width: 100% !important;
+        }
+
+        .gist-file
+        .gist-data {
+            max-height: 200px;
+            max-width: 100%;
+        }
+    </style>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            {% for gist in gists %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {% if gist.description != false %}
+                            <a href="{{ gist.url }}">{{ gist.description }}</a>
+                        {% else %}
+                            <a href="{{ gist.url }}">{{ gist.url }}</a>
+                        {% endif %}
+                    </div>
+                    <div class="panel-body">
+                        <script src="{{ gist.html_url }}.js"></script>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

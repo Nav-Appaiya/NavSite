@@ -1,0 +1,9 @@
+parameters:
+    nav.notification.class: Nav\NotificationBundle\Controller\NotificationController
+
+services:
+    nav.notification:
+        class: "%nav.notification.class%"
+        #Injecting the session component
+        arguments:
+                    session: @session

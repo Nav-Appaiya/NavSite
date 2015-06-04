@@ -1,0 +1,21 @@
+#Generated Page Crud
+nav_cms_cms_page:
+    resource: "@NavCMSBundle/Resources/config/routing/page.yml"
+    prefix:   /page
+
+# Generated Category Crud
+nav_cms_cms_category:
+    resource: "@NavCMSBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+# Generated User Crud
+nav_cms_cms_user:
+    resource: "@NavCMSBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+# Usbstikje tweets overview
+nav_usbstikje:
+    path: /usbstikje
+    defaults: { _controller: NavCMSBundle:Usbstik:index }
+
+

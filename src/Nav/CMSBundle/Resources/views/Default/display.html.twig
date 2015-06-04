@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{ page.title }}</h2>
+
+            <p class="lead">{{ page.category.name }}</p>
+
+            <p>
+                {{ page.content }}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for entry in articles.entries %}
+                <div class="panel-body">
+                    <a class="btn btn-default btn-block" href="{{ entry.link }}">
+                        <h5>{{ entry.title }} <br/>
+                            <small>{{ entry.author }}
+                                - {{ entry.publishedDate|date('d/m/Y H:i', timezone="Europe/Amsterdam") }}</small>
+                        </h5>
+                        {% for category in entry.categories %}
+                            {{ category }}
+                        {% endfor %}
+                        <p>
+                            {{ entry.contentSnippet }}
+                        </p>
+                    </a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

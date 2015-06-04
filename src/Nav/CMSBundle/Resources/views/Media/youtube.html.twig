@@ -1,0 +1,26 @@
+{% extends '@NavCMS/layout.html.twig' %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1>Youtube Downloader</h1>
+
+                        <p class="lead">Stay downloading.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_start(mp4form) }}
+            {{ form_row(mp4form.url) }}
+            {{ form_row(mp4form.download) }}
+            {{ form_end(mp4form) }}
+        </div>
+    </div>
+{% endblock %}

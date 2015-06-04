@@ -1,0 +1,8 @@
+# /scraper
+nav_scraper_homepage:
+    path:     /
+    defaults: { _controller: NavScraperBundle:TweetAbout:index }
+
+nav_scraper:
+    path: /test
+    defaults: { _controller: NavScraperBundle:tweetabout:index }

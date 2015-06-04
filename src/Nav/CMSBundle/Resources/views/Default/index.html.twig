@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1>Nav Appaiya</h1>
+
+                        <p class="lead">Stay awsome.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="list-group">
+                {% for page in pages %}
+                    <a href="{{ path('nav_cms_page_display', { id: page.id }) }}" class="list-group-item">
+                        <h4 class="list-group-item-heading">{{ page.title }}</h4>
+
+                        <p class="list-group-item-text">{{ page.content }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

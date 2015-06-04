@@ -1,0 +1,29 @@
+{% extends '@NavCMS/layout.html.twig' %}
+
+{% block body %}
+    {#Overview page for SEOShop#}
+
+    <h1 class="page-header">SEOShop Overview</h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cms_user_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+{% endblock %}

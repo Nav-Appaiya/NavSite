@@ -1,0 +1,4 @@
+services:
+#    nav_task.example:
+#        class: Nav\TaskBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

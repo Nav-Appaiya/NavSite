@@ -1,0 +1,31 @@
+{% extends '@NavCMS/layout.html.twig' %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header" id="banner">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1>Soundclouder</h1>
+
+                        <p class="lead">Stay Listening.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                Currently thinking this functionality over, what to do with the Soundcloud API<br/>
+            </div>
+            <div class="btn btn-block btn-info">Connect to Soundcloud</div>
+            <div class="btn btn-block btn-danger">Show me my playlists</div>
+            <div class="btn btn-block btn-warning">Bulk download playlist</div>
+            <div class="btn btn-block btn-success">Download a list from my playlist</div>
+            <div class="btn btn-block btn-primary">Mail me all songs from my playlist</div>
+        </div>
+    </div>
+{% endblock %}

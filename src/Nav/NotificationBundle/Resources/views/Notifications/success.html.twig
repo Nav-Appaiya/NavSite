@@ -1,0 +1,10 @@
+{# NavNotificationBundle Success notification template #}
+{% if notifications is defined %}
+    <div class="alert alert-dismissible alert-Success">
+        {% for notification in notifications.get('test1') %}
+            <button type="button" class="close" data-dismiss="alert">�</button>
+            <h4>{{ notification.type }}</h4>
+            <p>{{ notification.message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

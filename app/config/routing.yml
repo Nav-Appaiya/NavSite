@@ -1,0 +1,43 @@
+# FOSUserBundle
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+# Main Site
+app:
+    resource: "@AppBundle/Resources/config/routing/routing.yml"
+    prefix:   /
+
+# Projects
+project:
+    resource: "@AppBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+# =========================================================
+## a DevBundle Tasks on CRUD operations.
+#nav_task:
+#    resource: "@NavTaskBundle/Resources/config/routing.yml"
+#    prefix:   /task
+#
+#nav:
+#    resource: "@NavCMSBundle/Resources/config/routing.yml"
+#    prefix:   /
+#
+#nav_cms:
+#    resource: "@NavCMSBundle/Resources/config/routing/navigation.yml"
+#    prefix:   /cms
+#
+#nav_scraper:
+#    resource: "@NavScraperBundle/Resources/config/routing.yml"
+#    prefix:   /scraper
+
+
+
+# Homepage
+nav_cms_homepage:
+    path:     /
+    defaults: { _controller: NavCMSBundle:Default:index }
+
+# Display a Page
+nav_cms_page_display:
+    path: /page/{id}
+    defaults: { _controller: NavCMSBundle:Default:display }

@@ -1,0 +1,27 @@
+# Routing AppBundle
+# 30 may 2015 by Nav Appaiya
+
+# Project
+project:
+    resource: "@AppBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+# Homepage
+nav_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Page:home" }
+
+# About
+nav_about:
+    path: /about
+    defaults: { _controller: "AppBundle:Page:about" }
+
+#Contact
+nav_contact:
+    path: /contact
+    defaults: { _controller: "AppBundle:Page:contact" }
+
+# Error
+nav_error:
+    path: /error
+    defaults: { _controller: "AppBundle:Page:error" }

@@ -1,0 +1,71 @@
+.stylish-panel {
+    padding: 20px 0;
+    text-align: center;
+}
+.stylish-panel > div > div{
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+.stylish-panel > div:hover > div{
+    margin-top: -10px;
+    border: 1px solid rgb(200, 200, 200);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
+    background: rgba(200, 200, 200, 0.1);
+    transition: 0.5s;
+}
+
+.stylish-panel > div:hover img {
+    border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.badge-thumbnail{
+    max-width: 150px !important;
+}
+
+.social-login-btn {
+    margin: 5px;
+    width: 16%;
+    font-size: 250%;
+    padding: 0;
+}
+.social-google {
+    background-color: #da573b;
+    border-color: #be5238;
+}
+.social-google:hover{
+    background-color: #be5238;
+    border-color: #9b4631;
+}
+
+.social-twitter {
+    background-color: #1daee3;
+    border-color: #3997ba;
+}
+.social-twitter:hover {
+    background-color: #3997ba;
+    border-color: #347b95;
+}
+
+.social-facebook {
+    background-color: #4c699e;
+    border-color: #47618d;
+}
+.social-facebook:hover {
+    background-color: #47618d;
+    border-color: #3c5173;
+}
+
+.social-linkedin {
+    background-color: #4875B4;
+    border-color: #466b99;
+}
+.social-linkedin:hover {
+    background-color: #466b99;
+    border-color: #3b5a7c;
+}

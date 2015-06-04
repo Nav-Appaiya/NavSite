@@ -1,0 +1,53 @@
+# Login @See security.yml
+login:
+    path: /login
+    defaults: { _controller: NavCMSBundle:Security:login }
+
+# Login check
+login_check:
+    path: /login_check
+
+# Logout
+logout:
+    path: /logout
+
+# About
+nav_about:
+    path: /about
+    defaults: { _controller: NavCMSBundle:About:index }
+
+# Contact
+nav_contact:
+    path: /contact
+    defaults: { _controller: NavCMSBundle:Contact:index }
+
+# Gists page
+nav_gists:
+    path: /gists
+    defaults: { _controller: NavCMSBundle:Gists:index }
+
+# Test
+nav_test:
+    path: /test
+    defaults: { _controller: NavCMSBundle:Test:index }
+
+# Tweet [this will be hit by cron]
+nav_tweet:
+    path: /tweet
+    defaults: { _controller: NavCMSBundle:Usbstik:start }
+
+nav_search:
+    path: /search
+    defaults: { _controller: NavCMSBundle:Search:index }
+
+nav_youtube:
+    path: /youtube
+    defaults: { _controller: NavCMSBundle:Youtube:index }
+
+nav_soundcloud:
+    path: /soundcloud
+    defaults: { _controller: NavCMSBundle:Soundcloud:index }
+
+nav_convert:
+    path: /convert
+    defaults: { _controller: NavCMSBundle:Convert:convert }
