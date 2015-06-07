@@ -1,0 +1,7 @@
+services:
+  feedsburner:
+      class:     Nav\ToolBoxBundle\Feeds\FeedsBurner
+
+#    nav_tool_box.example:
+#        class: Nav\ToolBoxBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

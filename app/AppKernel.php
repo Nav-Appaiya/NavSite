@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Nav\NotificationBundle\NavNotificationBundle(),
             new Nav\ScraperBundle\NavScraperBundle(),
             new AppBundle\AppBundle(),
+            new Nav\ToolBoxBundle\NavToolBoxBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
