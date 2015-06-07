@@ -100,4 +100,14 @@ class FeedBurner {
     {
         return $this->entries;
     }
+
+    public function getFiveEntries()
+    {
+        return array_slice($this->entries, 0, 5);
+    }
+
+    public function getThreeEntries()
+    {
+        return array_slice($this->entries, 0, 3);
+    }
 }

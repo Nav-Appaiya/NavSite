@@ -14,15 +14,17 @@ class TestController extends Controller
 {
     public function indexAction()
     {
-        // Load the url
-        $feedburner = $this->get('toolbox.feedburner');
-        $response = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
+        $welcome = 'Hi';
+        if (date("H") < 12) {
+            $welcome = 'Good morning';
+        } else if (date('H') > 11 && date("H") < 18) {
+            $welcome = 'Good afternoon';
+        } else if(date('H') > 17) {
+            $welcome = 'Good evening';
+        }
 
-        var_dump($feedburner->getEntries());exit;
-
-        // Get entries
-
-
-        return $this->render('@App/test.html.twig');
+        return $this->render('@App/test.html.twig', [
+            'greeting' => $welcome
+        ]);
     }
 }

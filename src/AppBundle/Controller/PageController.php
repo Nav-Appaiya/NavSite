@@ -23,8 +23,9 @@ class PageController extends Controller
         $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'posts' => $techzine->entries,
-            'tweakers'=> $tweakers->entries
+            'posts' => $techzine->getThreeEntries(),
+            'tweakers'=> $tweakers->getFiveEntries(),
+            'greeting'=>$this->greeting()
         ]);
     }
 
@@ -61,5 +62,21 @@ class PageController extends Controller
     public function errorAction()
     {
         return $this->render('AppBundle:Page:error.html.twig');
+    }
+
+    public function greeting()
+    {
+        $welcome = 'Hi';
+        if (date("H") < 12) {
+            $welcome = 'Good morning';
+        } else if (date('H') > 11 && date("H") < 18) {
+            $welcome = 'Good afternoon';
+        } else if(date('H') > 17) {
+            $welcome = 'Good evening';
+        }
+        $date = new \DateTime("NOW");
+
+        $theTimeIs = $date->format('H:i');
+        return $welcome . ", current time " . $theTimeIs;
     }
 }
