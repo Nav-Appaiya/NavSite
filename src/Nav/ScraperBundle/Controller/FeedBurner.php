@@ -27,12 +27,17 @@ class FeedBurner
 
     public function __construct()
     {
-        $this->client = new Client();
+        $this->client = new Client(['base_uri' => 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=']);
     }
 
     public function loadFeed($url)
     {
-        $googleApi = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=";
+
+        $googleApi = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=";
+        $request = $this->client->get($googleApi, ['verify'=>false]);
+
+        return $request->getBody();
+
         $resultObject = ['object' => false];
 
         $result = $this->client->get($googleApi . $url);

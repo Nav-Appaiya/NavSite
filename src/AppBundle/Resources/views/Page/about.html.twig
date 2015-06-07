@@ -1,65 +1,71 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/about.css') }}"/>
+{% endblock %}
+
 {% block body %}
+
     <div class="row">
         <div class="col-lg-12 text-center">
             <h1>About</h1>
-            <p class="lead">Hello there, nice to meet you.</p>
+            <p class="lead">Hello, nice to meet you.</p>
 
         </div>
-    </div>
+    </div>    <hr>
 
-
-    <div class="row ">
-        <div class="col-xs-12 col-sm-6 col-md-6 ">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="{{ asset('bundles/app/img/nav1.jpg') }}" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>Nav Appaiya</h4>
-                        <small>
-                            <cite title="Rotterdam, NL">Rotterdam, The Netherlands <i class="fa fa-map-marker"></i>
-                            </cite>
-                        </small>
-                        <p>
-                            <i class="fa fa-envelope"></i> navarajh@gmail.com
-                            <br />
-                            <i class="fa fa-globe"></i> <a href="http://navappaiya.nl"> Navappaiya.nl</a>
-                            <br />
-                            <i class="fa fa-birthday-cake"></i> January 24, 1992</p>
+    <div class="row">
+        <div class="profile card">
+            <div class="profile-body">
+                <div class="profile-bio">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <img class="img-thumbnail md-margin-bottom-10"
+                                 src="{{ asset('bundles/app/img/nav-profile.jpg') }}"
+                                 alt="Nav Appaiya">
+                        </div>
+                        <div class="col-md-7">
+                                    <h1>Nav Appaiya</h1>
+                                    <span><strong>Job:</strong> Backend PHP Developer  </span>
+                                    <br/>
+                                    <span><strong>Skills: </strong>Symfony2 & working with datasets</span>
+                                    <hr>
+                                    <p>
+                                        I work at Notive as a backend developer.
+                                        As a backend developer, it is our job to make sure everything works properly.
+                                        We also ensure that the latest updates and changes are applied.
+                                        It's very interesting to work for a young and innovative company as Notive.
+                                    </p>
+                                </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-sm-6">
-            <p>
-                <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
-                <a class="btn btn-primary social-login-btn social-twitter" href="/auth/twitter"><i class="fa fa-twitter"></i></a>
-            </p>
-            <p>
-                <a class="btn btn-primary social-login-btn social-linkedin" href="/auth/linkedin"><i class="fa fa-linkedin"></i></a>
-                <a class="btn btn-primary social-login-btn social-google" href="/auth/google"><i class="fa fa-google-plus"></i></a>
-            </p>
-        </div>
     </div>
+
     <hr>
-      {% for row in badges|batch(3) %}
-        <div class="row stylish-panel">
-            {% for badge in row %}
-                <div class="col-md-4">
-                    <img src="{{ badge.imageUrl }}" alt="badge" class="img-circle img-thumbnail badge-thumbnail"/>
-                        <h2>
-                            <a href="{{ badge.assertion.badge.criteria }}" style="color: #000000">
-                                {{ badge.assertion.badge.name }}
-                            </a>
-                            </h2>
-                        <p>{{ badge.assertion.badge.description }}</p>
-                        <small>Achieved {{ badge.assertion.issued_on|date('F Y') }}</small>
-                </div>
-            {% endfor %}
-        </div>
-    {% endfor %}
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>Mozilla Open Badges</h1>
+              <p class="lead"><a href="http://openbadges.org/about/">Mozilla Open Badges</a> is a new online standard to recognize and verify learning	</p>
+          </div>
+          {% for row in badges|batch(3) %}
+              <div class="row stylish-panel">
+                  {% for badge in row %}
+                      <div class="col-md-4">
+                          <img src="{{ badge.imageUrl }}" alt="badge" class="img-circle img-thumbnail badge-thumbnail"/>
+                          <h2>
+                              <a href="{{ badge.assertion.badge.criteria }}" style="color: #000000">
+                                  {{ badge.assertion.badge.name }}
+                              </a>
+                          </h2>
+                          <p>{{ badge.assertion.badge.description }}</p>
+                          <small>Achieved {{ badge.assertion.issued_on|date('F Y') }}</small>
+                      </div>
+                  {% endfor %}
+              </div>
+          {% endfor %}
+      </div>
 
 {% endblock %}

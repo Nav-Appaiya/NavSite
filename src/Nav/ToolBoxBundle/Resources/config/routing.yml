@@ -1,3 +1,0 @@
-nav_tool_box_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NavToolBoxBundle:Default:index }

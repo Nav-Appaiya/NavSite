@@ -69,3 +69,9 @@
     background-color: #466b99;
     border-color: #3b5a7c;
 }
+
+.centered {
+    background-color: teal;
+    text-align: center;
+}
+

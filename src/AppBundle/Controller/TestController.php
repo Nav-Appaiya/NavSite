@@ -14,8 +14,15 @@ class TestController extends Controller
 {
     public function indexAction()
     {
-        $feedsburner = $this->get('toolbox.feedsburner');
-        print_r($feedsburner);exit;
+        // Load the url
+        $feedburner = $this->get('toolbox.feedburner');
+        $response = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
+
+        var_dump($feedburner->getEntries());exit;
+
+        // Get entries
+
+
         return $this->render('@App/test.html.twig');
     }
 }

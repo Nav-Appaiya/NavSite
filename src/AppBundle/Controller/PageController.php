@@ -18,7 +18,14 @@ class PageController extends Controller
      */
     public function homeAction()
     {
-        return $this->render('AppBundle:Page:home.html.twig');
+        $feedburner = $this->get('toolbox.feedburner');
+        $techzine = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
+        $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
+
+        return $this->render('AppBundle:Page:home.html.twig', [
+            'posts' => $techzine->entries,
+            'tweakers'=> $tweakers->entries
+        ]);
     }
 
     /**
