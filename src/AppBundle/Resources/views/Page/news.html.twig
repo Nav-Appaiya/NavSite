@@ -1,0 +1,93 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h1>Relevant news and trends
+            <p class="lead"> Staying close to new tools, trends and workflows </p>
+        </h1>
+    </div>
+
+    <div class="row">
+        <div id="carousel-example-captions" class="carousel slide bs-docs-carousel-example">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-captions" data-slide-to="1"></li>
+                <li data-target="#carousel-example-captions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img data-src="http://placekitten.com/1140/500" src="http://placekitten.com/1140/500" alt="First slide image">
+                    <div class="carousel-caption">
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img data-src="http://placekitten.com/1140/500" src="http://placekitten.com/1140/500" alt="Second slide image">
+                    <div class="carousel-caption">
+                        <h3>Second slide label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img data-src="http://placekitten.com/1140/500" src="http://placekitten.com/1140/500" alt="Third slide image">
+                    <div class="carousel-caption">
+                        <h3>Third slide label</h3>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8"> <!-- Tweakers feed left-side 8-col -->
+                <h1>Tweakers <br/>
+                <small> News, reviews, and Pricewatch.</small></h1>
+            <hr/>
+            {% for tweaker in tweakers %}
+                <h4>{{ tweaker.title }}</h4>
+                <p>{{ tweaker.contentSnippet }}</p>
+                <div>
+                    <a href="{{ tweaker.link }}" class="btn btn-primary btn-xs pull-right">
+                        Read more
+                    </a>
+                    <div>
+                        {% for i in tweaker.categories %}
+                            <span class="label label-danger">{{ i }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div> <!-- ./Tweakers feed -->
+
+        <div class="col-sm-4"> <!-- Techzine Tutorials feed left-side 4-col -->
+            <div class="page-header">
+                <h1><small>Techzine</small></h1>
+            </div>
+            {% for post in posts %}
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.contentSnippet }}</p>
+                <div>
+                    <span class="label label-primary">Posted {{ post.publishedDate }}</span>
+                    <div class="pull-right">
+                        {% for i in post.categories %}
+                            <span class="label label-success">{{ i }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div> <!-- ./Techzine feed -->
+    </div>
+
+{% endblock %}
