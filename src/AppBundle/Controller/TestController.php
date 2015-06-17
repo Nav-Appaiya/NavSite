@@ -8,23 +8,29 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Core\NavController;
 
-class TestController extends Controller
+class TestController extends NavController
 {
     public function indexAction()
     {
-        $welcome = 'Hi';
-        if (date("H") < 12) {
-            $welcome = 'Good morning';
-        } else if (date('H') > 11 && date("H") < 18) {
-            $welcome = 'Good afternoon';
-        } else if(date('H') > 17) {
-            $welcome = 'Good evening';
-        }
+        $feedburner = $this->get('toolbox.feedburner');
+        $techzine = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
+        $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
+
+        return $this->render('AppBundle::test.html.twig', [
+            'techzine' => $techzine->getThreeEntries(),
+            'tweakers'=> $tweakers->getFiveEntries(),
+            'greeting'=>$this->greeting()
+        ]);
 
         return $this->render('@App/test.html.twig', [
-            'greeting' => $welcome
+            'greeting' => $this->greeting()
         ]);
+    }
+
+    public function loadNews()
+    {
+
     }
 }

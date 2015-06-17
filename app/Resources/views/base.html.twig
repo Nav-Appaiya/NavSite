@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-lumen.css') }}" media="screen">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootswatch.min.css') }}">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
 
@@ -55,6 +54,9 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li>
+                    <a href="{{ path('nav_news') }}"><i class="fa fa-newspaper-o fa-fw"></i> News</a>
+                </li>
+                <li>
                     <a href="{{ path('project_index') }}"> <i class="fa fa-folder-open fa-fw"></i> Projects</a>
                 </li>
                 <li>
@@ -82,9 +84,9 @@
                             <li class="divider"></li>
                         {% endif %}
                         <li><a href="{{ path('project_index') }}"><i class="fa fa-folder-open fa-fw"></i> Projects</a></li>
-                        <li><a href="{{ path('nav_about') }}"><i class="fa fa-info fa-fw"></i> About</a></li>
-                        <li><a href="http://github.com/nav-appaiya"><i class="fa fa-github fa-fw"></i> Github</a></li>
-                        <li><a href="{{ path('nav_contact') }}"><i class="fa fa-question fa-fw"></i> Contact</a></li>
+                        <li><a href="{{ path('nav_about') }}"><i class="fa fa-info fa-fw"></i> About me</a></li>
+                        <li><a href="http://github.com/nav-appaiya"><i class="fa fa-github fa-fw"></i> Github me!</a></li>
+                        <li><a href="{{ path('nav_contact') }}"><i class="fa fa-question fa-fw"></i> Contact  me!</a></li>
                         {% if app.user %}
                             <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                         {% endif %}
@@ -99,7 +101,7 @@
     {% block body %}{% endblock %}
 
     {% block javascripts %}
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/app/js/bootwatch.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/app/js/script.js') }}"></script>

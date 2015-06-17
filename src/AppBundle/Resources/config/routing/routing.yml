@@ -16,6 +16,11 @@ nav_about:
     path: /about
     defaults: { _controller: "AppBundle:Page:about" }
 
+# News
+nav_news:
+    path: /news
+    defaults: { _controller: "AppBundle:Page:news" }
+
 #Contact
 nav_contact:
     path: /contact

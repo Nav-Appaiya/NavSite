@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\contact;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,8 +47,19 @@ class PageController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
+        $post = Request::createFromGlobals();
+
+        if ($request->get('submit')) {
+            $name = $post->request->get('name');
+            print_r($name);exit;
+        } else {
+            $name = 'Not submitted yet';
+        }
+
+
+
         return $this->render('AppBundle:Page:contact.html.twig');
     }
 
@@ -62,6 +74,20 @@ class PageController extends Controller
     public function errorAction()
     {
         return $this->render('AppBundle:Page:error.html.twig');
+    }
+
+    public function newsAction()
+    {
+        // Page for Feeds with PHP news
+        $feedburner = $this->get('toolbox.feedburner');
+        $techzine = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
+        $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
+
+        return $this->render('AppBundle:Page:news.html.twig', [
+            'posts' => $techzine->getThreeEntries(),
+            'tweakers'=> $tweakers->getFiveEntries(),
+            'greeting'=>$this->greeting()
+        ]);
     }
 
     public function greeting()
