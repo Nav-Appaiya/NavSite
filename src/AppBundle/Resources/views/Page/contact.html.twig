@@ -9,81 +9,116 @@
     </div>
 
     <hr/>
-
+    <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <div class="well well-sm">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="name">
-                                    Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Your name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <label for="email">
-                                    Email Address
-                                </label>
-                                <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="fa fa-envelope-o"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="name">
-                                    Your message or Question</label>
-                            <textarea name="message" id="message" class="form-control" rows="5" cols="25" required="required"
-                                      placeholder="Message"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                                Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+        <div class="col-sm-4">
+            <h3>Questions or Suggestions?</h3>
+            <p>Please feel free to contact me if you have any questions or comments.</p>
+            <address>
+                <strong>Email:</strong> <a href="mailto:navarajh@gmail.com"> navarajh@gmail.com</a><br>
+            </address>
         </div>
 
-            <div class="col-lg-4">
-                <div class="col-md-12">
-                    <style>
-                        /* Specific for Social media buttons on this page*/
-                        .social{
-                            text-align:center;
-                            width:120px;
-                            height:120px;
-                            float:left;
-                            background:rgb(255,255,255);
-                            border:1px solid rgb(204,204,204);
-                            box-shadow:0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);
-                            border-radius:5px;
-                            margin:0 10px 10px 0;
-                            padding:17px;
-                        }
-                        .google-pluse:hover{background:#DD4B39;color:#FFF;}
-                        .facebook:hover{background:#3b5998;color:#FFF;}
-                        .twitter:hover{background:#00acee;color:#FFF;}
-                        .linkedin:hover{background:#0e76a8;color:#FFF;}
-                    </style>
-                    <div class="row">
-                        <div class="social google-pluse">
-                            <i class="fa fa-google-plus fa-5x"></i>
-                        </div>
-                        <div class="social facebook">
-                            <i class="fa fa-facebook fa-5x"></i>
-                        </div>
-                        <div class="social twitter">
-                            <i class="fa fa-twitter fa-5x"></i>
-                        </div>
-                        <div class="social linkedin">
-                            <i class="fa fa-linkedin fa-5x"></i>
-                        </div>
+        <div class="col-sm-8 contact-form">
+            <form id="contact" method="post" class="form" role="form">
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Your name" type="text" required autofocus />
                     </div>
-            </div>
+                    <div class="col-xs-6 col-md-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Your email" type="email" required />
+                    </div>
+                </div>
+                <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5"></textarea>
+                <br />
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 form-group">
+                        <button class="btn btn-primary pull-right" type="submit" id="submit" name="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+    {# Backup #}
+    <div>
+        {#<div class="row">#}
+        {#<div class="col-md-8">#}
+        {#<div class="well well-sm">#}
+        {#<form>#}
+        {#<div class="row">#}
+        {#<div class="col-md-6">#}
+        {#<div class="form-group">#}
+        {#<label for="name">#}
+        {#Name</label>#}
+        {#<input type="text" class="form-control" id="name" placeholder="Your name" required="required" />#}
+        {#</div>#}
+        {#<div class="form-group">#}
+        {#<label for="email">#}
+        {#Email Address#}
+        {#</label>#}
+        {#<div class="input-group">#}
+        {#<span class="input-group-addon">#}
+        {#<span class="fa fa-envelope-o"></span>#}
+        {#</span>#}
+        {#<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="col-md-6">#}
+        {#<div class="form-group">#}
+        {#<label for="name">#}
+        {#Your message or Question</label>#}
+        {#<textarea name="message" id="message" class="form-control" rows="5" cols="25" required="required"#}
+        {#placeholder="Message"></textarea>#}
+        {#</div>#}
+        {#</div>#}
+        {#<div class="col-md-12">#}
+        {#<button type="submit" class="btn btn-primary pull-right" id="btnContactUs">#}
+        {#Submit</button>#}
+        {#</div>#}
+        {#</div>#}
+        {#</form>#}
+        {#</div>#}
+        {#</div>#}
+
+        {#<div class="col-lg-4">#}
+        {#<div class="col-md-12">#}
+        {#<style>#}
+        {#/* Specific for Social media buttons on this page*/#}
+        {#.social{#}
+        {#text-align:center;#}
+        {#width:120px;#}
+        {#height:120px;#}
+        {#float:left;#}
+        {#background:rgb(255,255,255);#}
+        {#border:1px solid rgb(204,204,204);#}
+        {#box-shadow:0 2px 4px rgba(0,0,0,0.15), inset 0 0 50px rgba(0,0,0,0.1);#}
+        {#border-radius:5px;#}
+        {#margin:0 10px 10px 0;#}
+        {#padding:17px;#}
+        {#}#}
+        {#.google-pluse:hover{background:#DD4B39;color:#FFF;}#}
+        {#.facebook:hover{background:#3b5998;color:#FFF;}#}
+        {#.twitter:hover{background:#00acee;color:#FFF;}#}
+        {#.linkedin:hover{background:#0e76a8;color:#FFF;}#}
+        {#</style>#}
+        {#<div class="row">#}
+        {#<div class="social google-pluse">#}
+        {#<i class="fa fa-google-plus fa-5x"></i>#}
+        {#</div>#}
+        {#<div class="social facebook">#}
+        {#<i class="fa fa-facebook fa-5x"></i>#}
+        {#</div>#}
+        {#<div class="social twitter">#}
+        {#<i class="fa fa-twitter fa-5x"></i>#}
+        {#</div>#}
+        {#<div class="social linkedin">#}
+        {#<i class="fa fa-linkedin fa-5x"></i>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
+        {#</div>#}
     </div>
 {% endblock%}

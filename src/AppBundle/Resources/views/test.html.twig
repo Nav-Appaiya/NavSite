@@ -6,10 +6,111 @@
             <h1>Nav Appaiya <br/>
             <small>{{ greeting }}</small>
             </h1>
-            <p class="lead">A PHP Developer</p>
-
         </div>
     </div>
+    {% for tweaker in tweakers %}
+        <h4>{{ tweaker.title }}</h4>
+        <p>{{ tweaker.contentSnippet }}</p>
+        <div>
+            <a href="{{ tweaker.link }}" class="btn btn-primary btn-xs pull-right">
+                Read more
+            </a>
+            <div>
+                {% for i in tweaker.categories %}
+                    <span class="label label-danger">{{ i }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    <div class="content container-fluid">
+        <!-- BEGIN Content -->
+        <div class="row">
+            <div class="col-md-8 col-xs-6">
+                <h2><a href="#">Tweakers</a></h2>
+                <article class="article-header">
+                    <header>
+                        <h3>News Entry #1</h3>
+                    </header>
+                </article>
+                <section class="article-text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
+                </section>
+
+                <article class="article-header">
+                    <header>
+                        <h3>News Entry #2</h3>
+                    </header>
+                </article>
+                <section class="article-text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Lorem ipsum dolor sit amet,
+                        consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                        consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                </section>
+
+                <hr>
+                <h2><a href="#">Video Game Spotlight</a></h2>
+                <article class="article-header">
+                    <header>
+                        <h3>Spotlight #1</h3>
+                    </header>
+                </article>
+                <section class="article-text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
+                </section>
+
+                <article class="article-header">
+                    <header>
+                        <h3>Spotlight #2</h3>
+                    </header>
+                </article>
+                <section class="article-text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Lorem ipsum dolor sit amet,
+                        consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                        consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+                        dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
+                        ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+                        ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                </section>
+
+                <hr>
+
+                <h2><a href="#">Video Game Reviews</a></h2>
+                <article class="article-header">
+                    <header>
+                        <h3>Review #1</h3>
+                    </header>
+                </article>
+                <section class="article-text">
+                    <div class="review-video embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VpevTNRK-_M" allowfullscreen></iframe>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
+                </section>
+
+            </div>
+            <div class="col-md-3 col-md-offset-1 col-xs-6">
+                <h2>Sidebar</h2>
+                <h3>Video of the Week</h3>
+                <div class="upcoming-events embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8ksf5QHlQWg" allowfullscreen></iframe>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="row">
 

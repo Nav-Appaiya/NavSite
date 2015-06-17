@@ -8,6 +8,6 @@
 /bin/
 /composer.phar
 /vendor/
-/web/bundles/
+/bundles/
 .idea/*
 /nbproject/private/
