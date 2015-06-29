@@ -2,7 +2,7 @@
 
 use Doctrine\ORM\Mapping as ORM;
 
-/** * Page * * @ORM\Table("page") * @ORM\Entity */
+/** * Page * * @ORM\Table("cms_page") * @ORM\Entity */
 class Page extends TimestampableEntity
 {
     /**     * @var integer     *     * @ORM\Column(name="id", type="integer")     * @ORM\Id     * @ORM\GeneratedValue(strategy="AUTO") */

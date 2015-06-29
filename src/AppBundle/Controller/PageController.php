@@ -3,9 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
+use AppBundle\Form\contactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Guzzle\Http\Client;
+use Guzzle\Plugin\Oauth\OauthPlugin;
 
 /**
  * Class PageController
@@ -19,13 +22,9 @@ class PageController extends Controller
      */
     public function homeAction()
     {
-        $feedburner = $this->get('toolbox.feedburner');
-        $techzine = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
-        $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
+
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'posts' => $techzine->getThreeEntries(),
-            'tweakers'=> $tweakers->getFiveEntries(),
             'greeting'=>$this->greeting()
         ]);
     }
@@ -49,18 +48,27 @@ class PageController extends Controller
      */
     public function contactAction(Request $request)
     {
-        $post = Request::createFromGlobals();
+        $contact = new contact();
+        $form = $this->createForm(new contactType(), $contact);
+        $form->add('submit', 'submit');
 
-        if ($request->get('submit')) {
-            $name = $post->request->get('name');
-            print_r($name);exit;
-        } else {
-            $name = 'Not submitted yet';
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+            $this->addFlash('success', 'Thanks for your submission, I will get back to you.');
+            return $this->redirect($this->generateUrl(
+                'nav_contact'
+            ));
         }
 
 
 
-        return $this->render('AppBundle:Page:contact.html.twig');
+        return $this->render('AppBundle:Page:contact.html.twig', [
+            'form'=>$form->createView()
+        ]);
     }
 
     /**
@@ -90,7 +98,7 @@ class PageController extends Controller
         ]);
     }
 
-    public function greeting()
+    private function greeting($time = false)
     {
         $welcome = 'Hi';
         if (date("H") < 12) {
@@ -103,6 +111,9 @@ class PageController extends Controller
         $date = new \DateTime("NOW");
 
         $theTimeIs = $date->format('H:i');
-        return $welcome . ", current time " . $theTimeIs;
+        if($time){
+            return $welcome . ", current time " . $theTimeIs;
+        }
+        return $welcome;
     }
 }

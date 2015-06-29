@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table("cms_user")
  * @ORM\Entity
  */
 class User extends TimestampableEntity implements UserInterface

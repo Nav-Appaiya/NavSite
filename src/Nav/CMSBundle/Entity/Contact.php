@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Contact
  *
- * @ORM\Table("contact")
+ * @ORM\Table("cms_contact")
  * @ORM\Entity
  */
 class Contact extends TimestampableEntity

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Visitor
  *
- * @ORM\Table()
+ * @ORM\Table("cms_visitor")
  * @ORM\Entity
  */
 class Visitor extends TimestampableEntity
