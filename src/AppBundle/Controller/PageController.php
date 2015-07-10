@@ -22,10 +22,19 @@ class PageController extends Controller
      */
     public function homeAction()
     {
+        $yql_url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20%0Afrom%20html%0Awhere%20url%3D%22http%3A%2F%2Fhackersays.com%2F%22%20%0Aand%20xpath%3D%27%2F%2F*%5B%40id%3D%22quotes%22%5D%2Fli%27&format=json&callback=";
+        $rawQuotes = file_get_contents($yql_url);
+        $cleanQuotes = json_decode($rawQuotes)->query->results->li;
 
+        foreach ($cleanQuotes as $dataid) {
+            $quotes[] = [
+                'quote' => $dataid->blockquote->p->span,
+                'author' => $dataid->blockquote->cite
+            ];
+        }
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'greeting'=>$this->greeting()
+            'quotes'=>$quotes
         ]);
     }
 
@@ -48,23 +57,22 @@ class PageController extends Controller
      */
     public function contactAction(Request $request)
     {
-        $contact = new contact();
-        $form = $this->createForm(new contactType(), $contact);
-        $form->add('submit', 'submit');
+        $contact = new \Nav\CMSBundle\Entity\Contact();
+        $contactType = new \Nav\CMSBundle\Form\ContactType();
+        $form = $this->createForm($contactType, $contact);
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
 
-        $form->handleRequest($request);
-
-        if($form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($contact);
-            $em->flush();
-            $this->addFlash('success', 'Thanks for your submission, I will get back to you.');
-            return $this->redirect($this->generateUrl(
-                'nav_contact'
-            ));
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contact);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'Your email has been sent! Thanks!');
+                return $this->redirect($this->generateUrl(
+                    'nav_contact'
+                ));
+            }
         }
-
-
 
         return $this->render('AppBundle:Page:contact.html.twig', [
             'form'=>$form->createView()

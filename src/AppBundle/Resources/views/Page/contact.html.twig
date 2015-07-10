@@ -15,6 +15,14 @@
 
     <!-- .container -->
         <div class="container">
+            <div class="row">
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="flash-notice">
+                       <h1 class="text-center"> {{ flashMessage }}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+
             <!-- .row outer-->
             <div class="row">
                 <!-- .col-sm-4 extra info -->
@@ -28,7 +36,7 @@
 
                 <!-- .contact-form -->
                     <div class="col-sm-8 contact-form">
-                    {{ form_widget(form) }}
+                    {{ form(form) }}
                 </div>  <!-- ./.contact-form -->
             </div>  <!-- ./.row outer -->
         </div>  <!-- ./.container -->

@@ -1,47 +1,85 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/carousel.css') }}">
+{% endblock %}
+
 {% block body %}
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h1>Nav Appaiya</h1>
-            <p class="h4"></p>
-        </div>
-    </div>
-    <div class="jumbotron text-center">
-        <h1>{{ greeting }}</h1>
-        <p class="lead">My name is <a href="{{ path('nav_about') }}">Nav Appaiya</a>, a PHP Backend developer from the Netherlands.</p>
-        <p><a class="btn btn-lg btn-success bottomleft" href="{{ path('nav_about') }}" role="button">Learn more about me</a></p>
+
+    <!-- Header with separating line on the bottom -->
+    <div class="page-header text-center">
+        <h2>Nav Appaiya <br><small>&lt; a Webdeveloper & TechGeek /&gt;</small></h2>
     </div>
 
+    <!-- Carousel with the programming quotes -->
     <div class="row">
-        <!-- Projects -->
-        <div class="col-lg-4">
-            <div class="caption">
-                <h3>Projects</h3>
-                <p>Some of the projects I have been working on lately</p>
-                <p class="text-danger">This page is still under heavy development, but keep track of this page.</p>
-                <a class="btn btn-primary" href="{{ path('project_index') }}">View Projects <i class="fa fa-chevron-right"></i></a>
+        <section id="carousel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
+                            <ol class="carousel-indicators">
+                                <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                                <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
+                            </ol>
+                            <!-- TODO: quotes from hackersays -->
+                            <div class="carousel-inner">
+                                <div class="active item text-center">
+                                    <p>{{ quotes|first(0).quote }}</p>
+                                    <small>
+                                        {{ quotes|first(0).author }}
+                                    </small>
+                                </div>
+                                {% for quote in quotes %}
+                                    <div class="item text-center">
+                                        <blockquote>
+                                            <p> {{ quote.quote }}</p>
+                                            <small>{{ quote.author }}</small>
+                                        </blockquote>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- ./Projects -->
-        <!-- News -->
-        <div class="col-lg-4">
-            <div class="caption">
-                <h3>News</h3>
-                <p>Few headlines from various PHP News sources, all news articles are fetches through their API's. </p>
-                <a class="btn btn-primary" href="{{ path('nav_news') }}">View News <i class="fa fa-chevron-right"></i></a>
-            </div>
-        </div>
-        <!-- ./News -->
+        </section>
+    </div>
 
-        <div class="col-lg-4">
-            <div class="caption">
-                <h3>About</h3>
-                <p>Every site needs an About Page. So here's mine. </p>
-                <span>
-                    <a class="btn btn-primary" href="{{ path('nav_about') }}">View About <i class="fa fa-chevron-right"></i></a>
-                </span>
-            </div>
+    <!-- Small introduction, link to about -->
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 text-center">
+            <h2 class="">
+                About me
+            </h2>
+            <p >My full name is Navarajh Appaiya, but everyone calls me <strong>Nav</strong>.
+                Born in Jaffna, Sri Lanka, but grew up in the Netherlands as a Dutch guy.
+                Love to work on the backend of any application or website to make it better, faster, or more secure.
+                Mainly working with PHP & Frameworks, but also like to get deep into other new languages as well.
+
+            </p>
         </div>
     </div>
+
+    <!-- Links and information about my Projects -->
+    {#
+        Note for projects to start with:
+            1. Woocommerce Bundle for SF2
+            2. USBSTIKJE Tweetbot with configuration for SF2
+    #}
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h2 class="text-center">
+                Projects
+            </h2>
+            <p>
+                Currently working on this and the projects page to show off my work. Hold on while I get my projects together!
+            </p>
+        </div>
+    </div>
+
+    <!-- Tweets from @navvvv -->
+
+
 {% endblock %}
