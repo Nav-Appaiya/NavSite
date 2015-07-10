@@ -11,3 +11,5 @@
 /bundles/
 .idea/*
 /nbproject/private/
+.DS_Store
+app/.DS_Store
