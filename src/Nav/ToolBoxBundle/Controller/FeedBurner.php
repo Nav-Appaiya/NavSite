@@ -16,6 +16,12 @@ use Guzzle\Http\Message\Response;
 class FeedBurner {
 
 
+    public function __construct($url = "http://feeds.feedburner.com/Tutorialzine")
+    {
+        // Loads the Guzzle\Http\Message\Response object into $response
+        $this->response = $this->preLoadClient($this->jsonConverter.$url);
+        $this->entries = $this->loadEntries($this->response);
+    }
     /**
      * I Call this the json-converter, but
      * its actualy the Google Apis Ajax Service
@@ -45,10 +51,7 @@ class FeedBurner {
      */
     public function load($url)
     {
-        // Loads the Guzzle\Http\Message\Response object into $response
-        $this->response = $this->preLoadClient($this->jsonConverter.$url);
-        $this->entries = $this->loadEntries($this->response);
-        return $this;
+        return new FeedBurner($url);
     }
 
     /**

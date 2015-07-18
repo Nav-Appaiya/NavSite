@@ -18,27 +18,10 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
-                            <ol class="carousel-indicators">
-                                <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-                                <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
-                            </ol>
-                            <!-- TODO: quotes from hackersays -->
                             <div class="carousel-inner">
                                 <div class="active item text-center">
-                                    <p>{{ quotes|first(0).quote }}</p>
-                                    <small>
-                                        {{ quotes|first(0).author }}
-                                    </small>
+                                    <h1><small>{{ quote }}</small></h1>
                                 </div>
-                                {% for quote in quotes %}
-                                    <div class="item text-center">
-                                        <blockquote>
-                                            <p> {{ quote.quote }}</p>
-                                            <small>{{ quote.author }}</small>
-                                        </blockquote>
-                                    </div>
-                                {% endfor %}
                             </div>
                         </div>
                     </div>

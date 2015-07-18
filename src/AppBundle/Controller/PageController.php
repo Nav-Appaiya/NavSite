@@ -22,19 +22,13 @@ class PageController extends Controller
      */
     public function homeAction()
     {
-        $yql_url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20%0Afrom%20html%0Awhere%20url%3D%22http%3A%2F%2Fhackersays.com%2F%22%20%0Aand%20xpath%3D%27%2F%2F*%5B%40id%3D%22quotes%22%5D%2Fli%27&format=json&callback=";
-        $rawQuotes = file_get_contents($yql_url);
-        $cleanQuotes = json_decode($rawQuotes)->query->results->li;
+        $yql_url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fquotesondesign.com%2F%22%20and%0A%20%20%20%20%20%20xpath%3D%27%2F%2F*%5B%40id%3D%22quote-content%22%5D%2Fp%2Ftext()%5B1%5D%27&format=json&callback=";
 
-        foreach ($cleanQuotes as $dataid) {
-            $quotes[] = [
-                'quote' => $dataid->blockquote->p->span,
-                'author' => $dataid->blockquote->cite
-            ];
-        }
+        $content = json_decode(file_get_contents($yql_url));
+        $quote = $content->query->results;
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'quotes'=>$quotes
+            'quote'=>$quote
         ]);
     }
 
