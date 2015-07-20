@@ -10,7 +10,6 @@ namespace Nav\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 class TimestampableEntity
 {
 
@@ -75,5 +74,14 @@ class TimestampableEntity
         if ($this->getCreatedAt() == null) {
             $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
         }
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->created_at = new \DateTime();
     }
 }

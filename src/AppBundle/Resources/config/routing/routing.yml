@@ -34,3 +34,9 @@ nav_error:
 nav_test:
     path: /test
     defaults: { _controller: "AppBundle:Test:index" }
+
+
+# Cron path (runs every 15 min)
+nav_cron:
+    path: /cron
+    defaults: { _controller: AppBundle:Cron:index }

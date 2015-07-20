@@ -22,13 +22,12 @@ class PageController extends Controller
      */
     public function homeAction()
     {
-        $yql_url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fquotesondesign.com%2F%22%20and%0A%20%20%20%20%20%20xpath%3D%27%2F%2F*%5B%40id%3D%22quote-content%22%5D%2Fp%2Ftext()%5B1%5D%27&format=json&callback=";
-
-        $content = json_decode(file_get_contents($yql_url));
-        $quote = $content->query->results;
+        $em = $this->getDoctrine()->getEntityManager();
+        $quote = $em->getRepository('AppBundle:quotes')->findAll();
+        $quote = $quote[mt_rand(0,count($quote)-1)];
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'quote'=>$quote
+            'quote'=> $quote->getContent()
         ]);
     }
 
