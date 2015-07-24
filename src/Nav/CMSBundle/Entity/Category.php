@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Category
+ * Category.
  *
  * @ORM\Table("cms_category")
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Category extends TimestampableEntity
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -34,7 +34,6 @@ class Category extends TimestampableEntity
      */
     private $pages;
 
-
     /**
      * Holds the pages in a ArrayCollection
      * for us. Did you note that the
@@ -50,11 +49,10 @@ class Category extends TimestampableEntity
         return $this->name;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -62,9 +60,10 @@ class Category extends TimestampableEntity
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Category
      */
     public function setName($name)
@@ -75,7 +74,7 @@ class Category extends TimestampableEntity
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -85,9 +84,10 @@ class Category extends TimestampableEntity
     }
 
     /**
-     * Add pages
+     * Add pages.
      *
      * @param \Nav\CMSBundle\Entity\Page $pages
+     *
      * @return Category
      */
     public function addPage(\Nav\CMSBundle\Entity\Page $pages)
@@ -98,7 +98,7 @@ class Category extends TimestampableEntity
     }
 
     /**
-     * Remove pages
+     * Remove pages.
      *
      * @param \Nav\CMSBundle\Entity\Page $pages
      */
@@ -108,7 +108,7 @@ class Category extends TimestampableEntity
     }
 
     /**
-     * Get pages
+     * Get pages.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

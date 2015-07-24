@@ -6,7 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Nav\CMSBundle\Entity\TimestampableEntity;
 
 /**
- * Project Quotes
+ * Project Quotes.
+ *
  * @ORM\Entity
  * @ORM\Table(name="quotes")
  * @ORM\HasLifecycleCallbacks
@@ -14,7 +15,7 @@ use Nav\CMSBundle\Entity\TimestampableEntity;
 class quotes extends TimestampableEntity
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="string", length=36)
      * @ORM\Id
@@ -106,6 +107,4 @@ class quotes extends TimestampableEntity
     {
         $this->deletedAt = $deletedAt;
     }
-
-
 }

@@ -7,15 +7,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * TaskController for CRUD operations on Tasks
- * Nav Appaiya 30-May-2015
+ * Nav Appaiya 30-May-2015.
  *
  * Class TaskController
- * @package Nav\TaskBundle\Controller
  */
 class TaskController extends Controller
 {
     /**
-     * Listing all Tasks
+     * Listing all Tasks.
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -25,9 +24,10 @@ class TaskController extends Controller
     }
 
     /**
-     * Showing a specific Task By Id
+     * Showing a specific Task By Id.
      *
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction($id)
@@ -36,7 +36,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Showing the Create Form
+     * Showing the Create Form.
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -47,9 +47,10 @@ class TaskController extends Controller
 
     /**
      * Takes the post data from the create form
-     * Only accepts post requests, see routing
+     * Only accepts post requests, see routing.
      *
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function createAction(Request $request)
@@ -58,9 +59,10 @@ class TaskController extends Controller
     }
 
     /**
-     * Shows edit form for a Task
+     * Shows edit form for a Task.
      *
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction($id)
@@ -74,6 +76,7 @@ class TaskController extends Controller
      *
      * @param Request $request
      * @param $id
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function updateAction(Request $request, $id)

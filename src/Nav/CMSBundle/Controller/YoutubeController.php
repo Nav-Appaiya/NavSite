@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 24-3-2015
- * Time: 1:19
+ * Time: 1:19.
  *
  * Youtube downloader Controller
  * - Render form
@@ -17,24 +18,19 @@ use Nav\CMSBundle\Entity\Youtube;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
 
 /**
- * Class YoutubeController
- *
- * @package Nav\CMSBundle\Controller
+ * Class YoutubeController.
  */
 class YoutubeController extends Controller
 {
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
     {
-
         $youtube = new Youtube();
         $mp4Form = $this->youtubeToMp4Form($youtube);
         $mp4Form->handleRequest($request);
@@ -51,15 +47,18 @@ class YoutubeController extends Controller
             $em->flush();
             $notify = $this->get('nav.notification');
             $notify->add('notification', ['title' => 'Success', 'message' => 'Done!']);
-            return new RedirectResponse("http://navappaiya.nl/bin/getvideo.php?videoid=" . $youtube->getUrl() . "&format=free");
+
+            return new RedirectResponse('http://navappaiya.nl/bin/getvideo.php?videoid='.$youtube->getUrl().'&format=free');
         }
+
         return $this->render('NavCMSBundle:Media:youtube.html.twig', [
-            'mp4form' => $mp4Form->createView()
+            'mp4form' => $mp4Form->createView(),
         ]);
     }
 
     /**
      * @param $url
+     *
      * @return string
      */
     public function getCleanVideoId($url)
@@ -78,6 +77,7 @@ class YoutubeController extends Controller
 
     /**
      * @param $youtube
+     *
      * @return \Symfony\Component\Form\Form
      */
     public function youtubeToMp4Form($youtube)
@@ -86,10 +86,9 @@ class YoutubeController extends Controller
             ->add('url', 'text', array('label' => 'Youtube to mp4'))
             ->add('download', 'submit', array(
                 'label' => 'Get Download',
-                'attr' => array('class' => 'btn btn-danger btn-sm')
+                'attr' => array('class' => 'btn btn-danger btn-sm'),
             ))->getForm();
+
         return $form;
     }
-
-
 }

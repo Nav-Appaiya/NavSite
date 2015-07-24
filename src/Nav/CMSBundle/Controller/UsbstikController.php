@@ -1,39 +1,27 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 18-3-2015
- * Time: 19:59
+ * Time: 19:59.
  *
  * @Usbstikje, a random twitterbot.
  */
 
 namespace Nav\CMSBundle\Controller;
 
-
 use GuzzleHttp\Client;
 use Nav\CMSBundle\Entity\Joke;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\True;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Class UsbstikController
- * @package Nav\CMSBundle\Controller
- *
- * Uses the feeds from NavCMSBundle:Page and
- * selects random one to tweet. Chops them
- * and uses googl url-shortner to stay within the
- * 140 characters limit of twitter.
- *
+ * Class UsbstikController.
  */
 class UsbstikController extends Controller
 {
-
-
     public function indexAction(Request $request)
     {
         $joke = new Joke();
@@ -42,7 +30,7 @@ class UsbstikController extends Controller
             ->add('lastName', 'text', array('label' => 'Last name: '))
             ->add('save', 'submit', array(
                 'label' => 'Tweet',
-                'attr' => array('class' => 'btn btn-danger btn-sm')
+                'attr' => array('class' => 'btn btn-danger btn-sm'),
             ))
             ->getForm();
 
@@ -64,15 +52,14 @@ class UsbstikController extends Controller
             $em->flush();
 
             $notifications = $this->get('nav.notification');
-            $notifications->add("notifications", array("title" => "Success", "message" => "Personal Shots have been fired!"));
+            $notifications->add('notifications', array('title' => 'Success', 'message' => 'Personal Shots have been fired!'));
+
             return $this->redirect($this->generateUrl('nav_usbstikje'));
-
         }
-
 
         return $this->render('NavCMSBundle:Tweets:index.html.twig', [
             'joke' => $form->createView(),
-            'tweets' => $this->getTweets()
+            'tweets' => $this->getTweets(),
         ]);
     }
 
@@ -88,15 +75,14 @@ class UsbstikController extends Controller
         return $tweets;
     }
 
-
     /**
-     * - /usbstikje
+     * - /usbstikje.
      */
     public function startAction()
     {
         $tweet = $this->getLuckyTweetPost();
         $shortUrl = $this->getGooglShortUrl($tweet['link']);
-        $composedTweet = substr($tweet['title'], 0, 120) . ' - ' . $shortUrl->id;
+        $composedTweet = substr($tweet['title'], 0, 120).' - '.$shortUrl->id;
 
         $response = $this->tweetThis($composedTweet);
 
@@ -110,6 +96,7 @@ class UsbstikController extends Controller
 
     /**
      * @param $tweet
+     *
      * @return int statuscode
      */
     public function tweetThis($tweet)
@@ -122,11 +109,10 @@ class UsbstikController extends Controller
     }
 
     /**
-     * Returns a  tweet
+     * Returns a  tweet.
      */
     public function getLuckyTweetPost()
     {
-
         $chuck = $this->get('scraper.chuck_norris');
         $feedburner = $this->get('scraper.feedburner');
         $em = $this->getDoctrine()->getEntityManager();
@@ -144,7 +130,7 @@ class UsbstikController extends Controller
         // Some feeds dont return contentSnippet,
         // load the title instead if contentSnippet strlen < 10
         if (strlen($luckyArticle['contentSnippet']) < 10) {
-            $luckyArticle['contentSnippet'] = substr($luckyArticle['title'], 0, 135) . '...';
+            $luckyArticle['contentSnippet'] = substr($luckyArticle['title'], 0, 135).'...';
         }
 
         return $luckyArticle;
@@ -154,20 +140,18 @@ class UsbstikController extends Controller
     {
         $client = new Client();
         $key = $this->container->getParameter('googl_key');
-        $requestUrl = "https://www.googleapis.com/urlshortener/v1/url?key=" . $key;
+        $requestUrl = 'https://www.googleapis.com/urlshortener/v1/url?key='.$key;
 
         $response = $client->post($requestUrl, [
             'verify' => false,
             'body' => json_encode(['longUrl' => $url]),
-            'headers' => ['Content-Type' => 'application/json']
+            'headers' => ['Content-Type' => 'application/json'],
         ]);
 
         return $response->json([
-            'object' => true
+            'object' => true,
         ]);
-
     }
-
 
     public function getOneChuckNorrisJoke()
     {
@@ -175,6 +159,4 @@ class UsbstikController extends Controller
 
         return $chuck->getOneRandomChuckNorrisJoke();
     }
-
-
 }

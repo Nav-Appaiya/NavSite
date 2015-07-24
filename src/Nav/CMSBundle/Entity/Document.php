@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 10-5-2015
- * Time: 19:50
+ * Time: 19:50.
  */
 
 namespace Nav\CMSBundle\Entity;
@@ -51,21 +52,21 @@ class Document
     {
         return null === $this->path
             ? null
-            : $this->getUploadRootDir() . '/' . $this->path;
+            : $this->getUploadRootDir().'/'.$this->path;
     }
 
     public function getWebPath()
     {
         return null === $this->path
             ? null
-            : $this->getUploadDir() . '/' . $this->path;
+            : $this->getUploadDir().'/'.$this->path;
     }
 
     protected function getUploadRootDir()
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__ . '/../../../../' . $this->getUploadDir();
+        return __DIR__.'/../../../../'.$this->getUploadDir();
     }
 
     protected function getUploadDir()

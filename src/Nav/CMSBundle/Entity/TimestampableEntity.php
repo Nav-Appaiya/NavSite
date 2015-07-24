@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 15-3-2015
- * Time: 17:10
+ * Time: 17:10.
  */
 
 namespace Nav\CMSBundle\Entity;
@@ -12,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 class TimestampableEntity
 {
-
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -75,7 +75,6 @@ class TimestampableEntity
             $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
         }
     }
-
 
     /**
      * @ORM\PrePersist

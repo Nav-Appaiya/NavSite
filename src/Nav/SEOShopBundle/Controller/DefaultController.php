@@ -25,10 +25,12 @@ class DefaultController extends Controller
         if ($form->isValid()) {
             $em->persist($shop);
             $em->flush();
+
             return $this->redirect($this->generateUrl('nav_about'));
         }
+
         return $this->render('NavSEOShopBundle:Default:new.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ));
     }
 }

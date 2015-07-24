@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 29-6-2015
- * Time: 23:23
+ * Time: 23:23.
  */
 
 namespace AppBundle\Form;
@@ -15,6 +16,7 @@ use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
+
 class contactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -23,20 +25,20 @@ class contactType extends AbstractType
             ->add('name', 'text', array(
                 'attr' => array(
                     'placeholder' => 'What\'s your name?',
-                    'pattern'     => '.{2,}' //minlength
-                )
+                    'pattern' => '.{2,}', //minlength
+                ),
             ))
             ->add('email', 'email', array(
                 'attr' => array(
-                    'placeholder' => 'So I can get back to you.'
-                )
+                    'placeholder' => 'So I can get back to you.',
+                ),
             ))
             ->add('message', 'textarea', array(
                 'attr' => array(
                     'cols' => 90,
                     'rows' => 10,
-                    'placeholder' => 'And your message to me...'
-                )
+                    'placeholder' => 'And your message to me...',
+                ),
             ))
             ->add('submit', 'submit');
     }
@@ -46,20 +48,20 @@ class contactType extends AbstractType
         $collectionConstraint = new Collection(array(
             'name' => array(
                 new NotBlank(array('message' => 'Name should not be blank.')),
-                new Length(array('min' => 2))
+                new Length(array('min' => 2)),
             ),
             'email' => array(
                 new NotBlank(array('message' => 'Email should not be blank.')),
-                new Email(array('message' => 'Invalid email address.'))
+                new Email(array('message' => 'Invalid email address.')),
             ),
             'message' => array(
                 new NotBlank(array('message' => 'Message should not be blank.')),
-                new Length(array('min' => 5))
-            )
+                new Length(array('min' => 5)),
+            ),
         ));
 
         $resolver->setDefaults(array(
-            'constraints' => $collectionConstraint
+            'constraints' => $collectionConstraint,
         ));
     }
 

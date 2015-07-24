@@ -4,20 +4,16 @@ namespace Nav\CMSBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Nav\CMSBundle\Entity\Page;
 use Nav\CMSBundle\Form\PageType;
 
 /**
  * Page controller.
- *
  */
 class PageController extends Controller
 {
-
     /**
      * Lists all Page entities.
-     *
      */
     public function indexAction()
     {
@@ -32,7 +28,6 @@ class PageController extends Controller
 
     /**
      * Creates a new Page entity.
-     *
      */
     public function createAction(Request $request)
     {
@@ -75,7 +70,6 @@ class PageController extends Controller
 
     /**
      * Displays a form to create a new Page entity.
-     *
      */
     public function newAction()
     {
@@ -90,7 +84,6 @@ class PageController extends Controller
 
     /**
      * Finds and displays a Page entity.
-     *
      */
     public function showAction($id)
     {
@@ -112,7 +105,6 @@ class PageController extends Controller
 
     /**
      * Displays a form to edit an existing Page entity.
-     *
      */
     public function editAction($id)
     {
@@ -155,7 +147,6 @@ class PageController extends Controller
 
     /**
      * Edits an existing Page entity.
-     *
      */
     public function updateAction(Request $request, $id)
     {
@@ -186,7 +177,6 @@ class PageController extends Controller
 
     /**
      * Deletes a Page entity.
-     *
      */
     public function deleteAction(Request $request, $id)
     {

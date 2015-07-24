@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 14-3-2015
- * Time: 0:05
+ * Time: 0:05.
  */
 
 namespace Nav\NotificationBundle\Controller;
@@ -20,12 +21,12 @@ use Symfony\Component\HttpFoundation\Session\Session;
  *
  * See:
  * http://symfony.com/doc/current/cookbook/controller/service.html
- * @package Nav\NotificationBundle\Controller
  */
 class NotificationController extends Controller
 {
     /**
-     * Default flash message
+     * Default flash message.
+     *
      * @var array
      */
     private $defaults = ['type' => 'flash'];
@@ -44,7 +45,6 @@ class NotificationController extends Controller
         // Nothing here, as this controller will be used as service.
     }
 
-
     /**
      * @param Session $session
      */
@@ -56,18 +56,18 @@ class NotificationController extends Controller
     }
 
     /**
-     * Adding messages to the flashbag
+     * Adding messages to the flashbag.
      *
      * @param string $name
-     * @param array $arguments
+     * @param array  $arguments
      */
     public function add($name, array $arguments = [])
     {
         $arguments += $this->defaults;
 
-        if ($arguments["type"] === "flash") {
+        if ($arguments['type'] === 'flash') {
             $this->session->getFlashBag()->add($name, $arguments);
-        } elseif ($arguments["type"] === "instant") {
+        } elseif ($arguments['type'] === 'instant') {
             if (!isset($this->flashes[$name])) {
                 $this->flashes[$name] = array();
             }
@@ -88,7 +88,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * Get a notification
+     * Get a notification.
      */
     public function get($name)
     {
@@ -101,13 +101,11 @@ class NotificationController extends Controller
         }
     }
 
-
     /**
-     * Get all notifications
+     * Get all notifications.
      */
     public function all()
     {
         return array_merge_recursive($this->session->getFlashBag()->all(), $this->flashes);
     }
-
 }

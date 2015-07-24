@@ -1,18 +1,18 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 14-3-2015
- * Time: 14:32
+ * Time: 14:32.
  */
 
 namespace Nav\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Contact
+ * Contact.
  *
  * @ORM\Table("cms_contact")
  * @ORM\Entity
@@ -20,7 +20,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Contact extends TimestampableEntity
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -96,6 +96,4 @@ class Contact extends TimestampableEntity
     {
         $this->message = $message;
     }
-
-
 }

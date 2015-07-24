@@ -6,7 +6,6 @@ use CloudConvert\Api;
 use CloudConvert\Process;
 use Nav\CMSBundle\Entity\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 
 class ConvertController extends Controller
@@ -25,15 +24,15 @@ class ConvertController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $document->upload();
-            $document->setPath('uploads/pages/' . $document->getFileName());
+            $document->setPath('uploads/pages/'.$document->getFileName());
             $em->persist($document);
             $api = new Api('p8L1xbJzlruisUxW8GJKSUefEIUoBlXk5PXvKSTWGZSlG897vlfKNBX1TFgi4xfRDKBFkUz8foF-7BjxQBDooQ');
             $response = $api->convert([
-                "input" => "upload",
-                "save" => true,
-                "inputformat" => "pages",
-                "outputformat" => "pdf",
-                "file" => fopen($document->getFileName(), 'r'),
+                'input' => 'upload',
+                'save' => true,
+                'inputformat' => 'pages',
+                'outputformat' => 'pdf',
+                'file' => fopen($document->getFileName(), 'r'),
             ])
                 ->wait()
                 ->download();
@@ -42,20 +41,20 @@ class ConvertController extends Controller
             $process->download($response->output->url);
             exit;
             $em->flush();
+
             return $this->redirect($this->generateUrl('nav_convert'));
         }
 
         return $this->render('@NavCMS/Convert/convert.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ));
     }
 
     public function downloadPDF($converted)
     {
         header('Content-type: application/pdf');
-        header('Content-Disposition: attachment; filename="' . basename($filename) . '"');
+        header('Content-Disposition: attachment; filename="'.basename($filename).'"');
         header('Content-Transfer-Encoding: binary');
         readfile($filename);
     }
-
 }

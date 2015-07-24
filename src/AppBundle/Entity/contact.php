@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * contact
+ * contact.
  *
  * @ORM\Table("contact")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class contact
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -42,11 +42,10 @@ class contact
      */
     private $message;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -54,9 +53,10 @@ class contact
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return contact
      */
     public function setName($name)
@@ -67,9 +67,9 @@ class contact
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -77,9 +77,10 @@ class contact
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
+     *
      * @return contact
      */
     public function setEmail($email)
@@ -90,9 +91,9 @@ class contact
     }
 
     /**
-     * Get email
+     * Get email.
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -100,9 +101,10 @@ class contact
     }
 
     /**
-     * Set message
+     * Set message.
      *
      * @param string $message
+     *
      * @return contact
      */
     public function setMessage($message)
@@ -113,9 +115,9 @@ class contact
     }
 
     /**
-     * Get message
+     * Get message.
      *
-     * @return string 
+     * @return string
      */
     public function getMessage()
     {

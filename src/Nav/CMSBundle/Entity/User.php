@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table("cms_user")
  * @ORM\Entity
@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User extends TimestampableEntity implements UserInterface
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -37,11 +37,10 @@ class User extends TimestampableEntity implements UserInterface
      */
     private $password;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -49,9 +48,10 @@ class User extends TimestampableEntity implements UserInterface
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
+     *
      * @return User
      */
     public function setUsername($username)
@@ -62,7 +62,7 @@ class User extends TimestampableEntity implements UserInterface
     }
 
     /**
-     * Get username
+     * Get username.
      *
      * @return string
      */
@@ -72,9 +72,10 @@ class User extends TimestampableEntity implements UserInterface
     }
 
     /**
-     * Set password
+     * Set password.
      *
      * @param string $password
+     *
      * @return User
      */
     public function setPassword($password)
@@ -85,7 +86,7 @@ class User extends TimestampableEntity implements UserInterface
     }
 
     /**
-     * Get password
+     * Get password.
      *
      * @return string
      */
@@ -104,7 +105,7 @@ class User extends TimestampableEntity implements UserInterface
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
-        return null;
+        return;
     }
 
     /**
@@ -138,8 +139,5 @@ class User extends TimestampableEntity implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
-
     }
-
-
 }

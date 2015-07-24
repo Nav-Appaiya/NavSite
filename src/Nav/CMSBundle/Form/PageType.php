@@ -10,7 +10,7 @@ class PageType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -26,7 +26,7 @@ class PageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Nav\CMSBundle\Entity\Page'
+            'data_class' => 'Nav\CMSBundle\Entity\Page',
         ));
     }
 

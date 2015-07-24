@@ -4,11 +4,9 @@ namespace Nav\CMSBundle\Controller;
 
 use Nav\CMSBundle\Entity\Visitor;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 class TrackingController extends Controller
 {
-
     public function trackVisit()
     {
         $visitor = new Visitor();
@@ -17,7 +15,7 @@ class TrackingController extends Controller
         $hostname = gethostname();
         $ip = $this->getRequest()->getClientIp();
 
-        if ($ip != "127.0.0.2") {
+        if ($ip != '127.0.0.2') {
             $visitor->setHostname($hostname);
             $visitor->setIp($ip);
             $em->persist($visitor);
@@ -25,6 +23,4 @@ class TrackingController extends Controller
 
         $em->flush();
     }
-
-
 }

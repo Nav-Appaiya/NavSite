@@ -5,7 +5,7 @@ namespace Nav\SEOShopBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * shop
+ * shop.
  *
  * @ORM\Table()
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class shop
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -49,11 +49,10 @@ class shop
      */
     private $info;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -61,9 +60,10 @@ class shop
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return shop
      */
     public function setName($name)
@@ -74,7 +74,7 @@ class shop
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -84,9 +84,10 @@ class shop
     }
 
     /**
-     * Set apiKey
+     * Set apiKey.
      *
      * @param string $apiKey
+     *
      * @return shop
      */
     public function setApiKey($apiKey)
@@ -97,7 +98,7 @@ class shop
     }
 
     /**
-     * Get apiKey
+     * Get apiKey.
      *
      * @return string
      */
@@ -107,9 +108,10 @@ class shop
     }
 
     /**
-     * Set apiSecret
+     * Set apiSecret.
      *
      * @param string $apiSecret
+     *
      * @return shop
      */
     public function setApiSecret($apiSecret)
@@ -120,7 +122,7 @@ class shop
     }
 
     /**
-     * Get apiSecret
+     * Get apiSecret.
      *
      * @return string
      */
@@ -130,9 +132,10 @@ class shop
     }
 
     /**
-     * Set info
+     * Set info.
      *
      * @param string $info
+     *
      * @return shop
      */
     public function setInfo($info)
@@ -143,7 +146,7 @@ class shop
     }
 
     /**
-     * Get info
+     * Get info.
      *
      * @return string
      */

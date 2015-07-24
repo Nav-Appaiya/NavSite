@@ -1,27 +1,26 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 22-3-2015
- * Time: 20:12
+ * Time: 20:12.
  */
 
 namespace Nav\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
- * Joke
+ * Joke.
  *
  * @ORM\Table("cms_joke")
  * @ORM\Entity
  */
 class Joke extends TimestampableEntity
 {
-
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="string", length=36)
      * @ORM\Id

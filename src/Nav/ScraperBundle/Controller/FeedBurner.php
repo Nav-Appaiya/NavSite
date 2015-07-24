@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav Appaiya
  * Date: 16-3-2015
- * Time: 20:33
+ * Time: 20:33.
  */
 
 namespace Nav\ScraperBundle\Controller;
@@ -11,14 +12,7 @@ namespace Nav\ScraperBundle\Controller;
 use GuzzleHttp\Client;
 
 /**
- * Class FeedBurner
- * @package Nav\ScraperBundle\Controller
- *
- * So, Feedburner takes the regular RSS feed your
- * blog creates (your blog creates this automatically
- * most of the time) and grabs it, gives it a new
- * address, tracks anyone who subscribes to that
- * address, and provides other nerdy goodies.
+ * Class FeedBurner.
  */
 class FeedBurner
 {
@@ -32,15 +26,14 @@ class FeedBurner
 
     public function loadFeed($url)
     {
-
-        $googleApi = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=";
-        $request = $this->client->get($googleApi, ['verify'=>false]);
+        $googleApi = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=100&q=';
+        $request = $this->client->get($googleApi, ['verify' => false]);
 
         return $request->getBody();
 
         $resultObject = ['object' => false];
 
-        $result = $this->client->get($googleApi . $url);
+        $result = $this->client->get($googleApi.$url);
         $filter = $result->json($resultObject);
 
         $responseData = $filter['responseData'];
@@ -81,6 +74,7 @@ class FeedBurner
     public function getOneEntry()
     {
         $total = count($this->entries) - 1;
+
         return $this->entries[$total];
     }
 
@@ -97,6 +91,6 @@ class FeedBurner
      */
     public function count()
     {
-        return isset($this->entries) ? count($this->entries) : "No entries loaded, first load the feed";
+        return isset($this->entries) ? count($this->entries) : 'No entries loaded, first load the feed';
     }
 }

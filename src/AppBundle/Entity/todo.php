@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Project todo
+ * Project todo.
  *
  * @ORM\Table(name="todo")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class todo
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -49,11 +49,10 @@ class todo
      */
     private $ip;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -61,9 +60,10 @@ class todo
     }
 
     /**
-     * Set content
+     * Set content.
      *
      * @param string $content
+     *
      * @return todo
      */
     public function setContent($content)
@@ -74,9 +74,9 @@ class todo
     }
 
     /**
-     * Get content
+     * Get content.
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
@@ -84,22 +84,23 @@ class todo
     }
 
     /**
-     * Set createdAt
+     * Set createdAt.
      *
      * @param \DateTime $createdAt
+     *
      * @return todo
      */
     public function setCreatedAt()
     {
-        $this->createdAt = new \DateTime("now");
+        $this->createdAt = new \DateTime('now');
 
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get createdAt.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -107,22 +108,23 @@ class todo
     }
 
     /**
-     * Set deletedAt
+     * Set deletedAt.
      *
      * @param \DateTime $deletedAt
+     *
      * @return todo
      */
     public function setDeletedAt()
     {
-        $this->deletedAt = new \DateTime("now");
+        $this->deletedAt = new \DateTime('now');
 
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get updatedAt.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -130,9 +132,10 @@ class todo
     }
 
     /**
-     * Set ip
+     * Set ip.
      *
      * @param string $ip
+     *
      * @return todo
      */
     public function setIp($ip)
@@ -143,9 +146,9 @@ class todo
     }
 
     /**
-     * Get ip
+     * Get ip.
      *
-     * @return string 
+     * @return string
      */
     public function getIp()
     {

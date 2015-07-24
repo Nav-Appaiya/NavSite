@@ -5,7 +5,7 @@ namespace Nav\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Visitor
+ * Visitor.
  *
  * @ORM\Table("cms_visitor")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Visitor extends TimestampableEntity
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -81,11 +81,10 @@ class Visitor extends TimestampableEntity
         $this->info = $info;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -93,9 +92,10 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Set hostname
+     * Set hostname.
      *
      * @param string $hostname
+     *
      * @return Visitor
      */
     public function setHostname($hostname)
@@ -106,7 +106,7 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Get hostname
+     * Get hostname.
      *
      * @return string
      */
@@ -116,9 +116,10 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Set visited
+     * Set visited.
      *
      * @param \DateTime $visited
+     *
      * @return Visitor
      */
     public function setVisited($visited)
@@ -129,7 +130,7 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Get visited
+     * Get visited.
      *
      * @return \DateTime
      */
@@ -139,9 +140,10 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Set ip
+     * Set ip.
      *
      * @param string $ip
+     *
      * @return Visitor
      */
     public function setIp($ip)
@@ -152,7 +154,7 @@ class Visitor extends TimestampableEntity
     }
 
     /**
-     * Get ip
+     * Get ip.
      *
      * @return string
      */

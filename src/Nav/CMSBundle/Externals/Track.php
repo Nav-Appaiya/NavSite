@@ -1,20 +1,19 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 31-3-2015
- * Time: 22:16
+ * Time: 22:16.
  */
 
 namespace Nav\CMSBundle\Externals;
 
-
-class Tracker
+class Track
 {
-
     protected $hostname;
 
-    function __construct($hostname)
+    public function __construct($hostname)
     {
         $this->hostname = $hostname;
     }
@@ -34,6 +33,4 @@ class Tracker
     {
         $this->hostname = $hostname;
     }
-
-
 }

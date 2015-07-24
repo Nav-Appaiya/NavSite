@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 8-3-2015
- * Time: 0:28
+ * Time: 0:28.
  */
 
 namespace Nav\CMSBundle\Controller;
@@ -15,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
-
     public function indexAction(Request $request)
     {
         // Contact Model as under Entity Dir
@@ -41,8 +41,7 @@ class ContactController extends Controller
         }
 
         return $this->render('NavCMSBundle:Default:contact.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
-
 }

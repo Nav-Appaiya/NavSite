@@ -4,20 +4,16 @@ namespace Nav\CMSBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Nav\CMSBundle\Entity\Category;
 use Nav\CMSBundle\Form\CategoryType;
 
 /**
  * Category controller.
- *
  */
 class CategoryController extends Controller
 {
-
     /**
      * Lists all Category entities.
-     *
      */
     public function indexAction()
     {
@@ -32,7 +28,6 @@ class CategoryController extends Controller
 
     /**
      * Creates a new Category entity.
-     *
      */
     public function createAction(Request $request)
     {
@@ -75,7 +70,6 @@ class CategoryController extends Controller
 
     /**
      * Displays a form to create a new Category entity.
-     *
      */
     public function newAction()
     {
@@ -90,7 +84,6 @@ class CategoryController extends Controller
 
     /**
      * Finds and displays a Category entity.
-     *
      */
     public function showAction($id)
     {
@@ -112,7 +105,6 @@ class CategoryController extends Controller
 
     /**
      * Displays a form to edit an existing Category entity.
-     *
      */
     public function editAction($id)
     {
@@ -155,7 +147,6 @@ class CategoryController extends Controller
 
     /**
      * Edits an existing Category entity.
-     *
      */
     public function updateAction(Request $request, $id)
     {
@@ -186,7 +177,6 @@ class CategoryController extends Controller
 
     /**
      * Deletes a Category entity.
-     *
      */
     public function deleteAction(Request $request, $id)
     {

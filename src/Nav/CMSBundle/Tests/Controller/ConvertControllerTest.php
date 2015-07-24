@@ -12,5 +12,4 @@ class ConvertControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/convert');
     }
-
 }

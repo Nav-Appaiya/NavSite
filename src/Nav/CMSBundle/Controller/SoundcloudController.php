@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Nav
  * Date: 24-3-2015
- * Time: 1:19
+ * Time: 1:19.
  *
  * Youtube downloader Controller
  * - Render form
@@ -15,17 +16,12 @@ namespace Nav\CMSBundle\Controller;
 
 use Nav\CMSBundle\Entity\Youtube;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
-
-class SoundCloudController extends Controller
+class SoundcloudController extends Controller
 {
-
     public function indexAction(Request $request)
     {
-
         return $this->render('NavCMSBundle:Media:soundcloud.html.twig');
     }
 
@@ -42,6 +38,4 @@ class SoundCloudController extends Controller
 
         return $final;
     }
-
-
 }

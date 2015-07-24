@@ -1,11 +1,13 @@
-<?php namespace Nav\CMSBundle\Entity;
+<?php
+
+namespace Nav\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /** * Page * * @ORM\Table("cms_page") * @ORM\Entity */
 class Page extends TimestampableEntity
 {
-    /**     * @var integer     *     * @ORM\Column(name="id", type="integer")     * @ORM\Id     * @ORM\GeneratedValue(strategy="AUTO") */
+    /**     * @var int     *     * @ORM\Column(name="id", type="integer")     * @ORM\Id     * @ORM\GeneratedValue(strategy="AUTO") */
     private $id;
     /**     * @var string     *     * @ORM\Column(name="title", type="string", length=255) */
     private $title;
@@ -29,7 +31,7 @@ class Page extends TimestampableEntity
     /**     * @var string     *     * @ORM\Column(name="feed", type="string") */
     private $feed;
 
-    /**     * Get id     *     * @return integer */
+    /**     * Get id     *     * @return int */
     public function getId()
     {
         return $this->id;
@@ -39,6 +41,7 @@ class Page extends TimestampableEntity
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -52,6 +55,7 @@ class Page extends TimestampableEntity
     public function setContent($content)
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -65,6 +69,7 @@ class Page extends TimestampableEntity
     public function setCategory($category)
     {
         $this->category = $category;
+
         return $this;
     }
 

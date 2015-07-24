@@ -4,20 +4,16 @@ namespace Nav\CMSBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Nav\CMSBundle\Entity\User;
 use Nav\CMSBundle\Form\UserType;
 
 /**
  * User controller.
- *
  */
 class UserController extends Controller
 {
-
     /**
      * Lists all User entities.
-     *
      */
     public function indexAction()
     {
@@ -32,7 +28,6 @@ class UserController extends Controller
 
     /**
      * Creates a new User entity.
-     *
      */
     public function createAction(Request $request)
     {
@@ -75,7 +70,6 @@ class UserController extends Controller
 
     /**
      * Displays a form to create a new User entity.
-     *
      */
     public function newAction()
     {
@@ -90,7 +84,6 @@ class UserController extends Controller
 
     /**
      * Finds and displays a User entity.
-     *
      */
     public function showAction($id)
     {
@@ -112,7 +105,6 @@ class UserController extends Controller
 
     /**
      * Displays a form to edit an existing User entity.
-     *
      */
     public function editAction($id)
     {
@@ -155,7 +147,6 @@ class UserController extends Controller
 
     /**
      * Edits an existing User entity.
-     *
      */
     public function updateAction(Request $request, $id)
     {
@@ -186,7 +177,6 @@ class UserController extends Controller
 
     /**
      * Deletes a User entity.
-     *
      */
     public function deleteAction(Request $request, $id)
     {

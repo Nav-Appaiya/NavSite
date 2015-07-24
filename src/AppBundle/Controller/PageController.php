@@ -3,20 +3,14 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\contact;
-use AppBundle\Form\contactType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Guzzle\Http\Client;
-use Guzzle\Plugin\Oauth\OauthPlugin;
 
 /**
- * Class PageController
- * @package AppBundle\Controller
+ * Class PageController.
  */
 class PageController extends Controller
 {
-
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -24,24 +18,25 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $quote = $em->getRepository('AppBundle:quotes')->findAll();
-        $quote = $quote[mt_rand(0,count($quote)-1)];
+        $quote = $quote[mt_rand(0, count($quote) - 1)];
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'quote'=> $quote->getContent()
+            'quote' => $quote->getContent(),
         ]);
     }
 
     /**
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function aboutAction(Request $request)
     {
-        $rawBadges = "http://backpack.openbadges.org/displayer/160839/group/53555.json";
+        $rawBadges = 'http://backpack.openbadges.org/displayer/160839/group/53555.json';
         $response = json_decode(file_get_contents($rawBadges));
 
         return $this->render('AppBundle:Page:about.html.twig', [
-            'badges' => $response->badges
+            'badges' => $response->badges,
         ]);
     }
 
@@ -61,6 +56,7 @@ class PageController extends Controller
                 $em->persist($contact);
                 $em->flush();
                 $request->getSession()->getFlashBag()->add('notice', 'Your email has been sent! Thanks!');
+
                 return $this->redirect($this->generateUrl(
                     'nav_contact'
                 ));
@@ -68,7 +64,7 @@ class PageController extends Controller
         }
 
         return $this->render('AppBundle:Page:contact.html.twig', [
-            'form'=>$form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
@@ -89,32 +85,33 @@ class PageController extends Controller
     {
         // Page for Feeds with PHP news
         $feedburner = $this->get('toolbox.feedburner');
-        $techzine = $feedburner->load("http://feeds.feedburner.com/Tutorialzine");
-        $tweakers = $feedburner->load("http://feeds.feedburner.com/tweakers/nieuws");
+        $techzine = $feedburner->load('http://feeds.feedburner.com/Tutorialzine');
+        $tweakers = $feedburner->load('http://feeds.feedburner.com/tweakers/nieuws');
 
         return $this->render('AppBundle:Page:news.html.twig', [
             'posts' => $techzine->getThreeEntries(),
-            'tweakers'=> $tweakers->getFiveEntries(),
-            'greeting'=>$this->greeting()
+            'tweakers' => $tweakers->getFiveEntries(),
+            'greeting' => $this->greeting(),
         ]);
     }
 
     private function greeting($time = false)
     {
         $welcome = 'Hi';
-        if (date("H") < 12) {
+        if (date('H') < 12) {
             $welcome = 'Good morning';
-        } else if (date('H') > 11 && date("H") < 18) {
+        } elseif (date('H') > 11 && date('H') < 18) {
             $welcome = 'Good afternoon';
-        } else if(date('H') > 17) {
+        } elseif (date('H') > 17) {
             $welcome = 'Good evening';
         }
-        $date = new \DateTime("NOW");
+        $date = new \DateTime('NOW');
 
         $theTimeIs = $date->format('H:i');
-        if($time){
-            return $welcome . ", current time " . $theTimeIs;
+        if ($time) {
+            return $welcome.', current time '.$theTimeIs;
         }
+
         return $welcome;
     }
 }

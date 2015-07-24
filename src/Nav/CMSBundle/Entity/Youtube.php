@@ -5,7 +5,7 @@ namespace Nav\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Youtube
+ * Youtube.
  *
  * @ORM\Table("cms_youtube")
  * @ORM\Entity
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Youtube
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -58,11 +58,10 @@ class Youtube
         $this->computerName = $computerName;
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -70,9 +69,10 @@ class Youtube
     }
 
     /**
-     * Set url
+     * Set url.
      *
      * @param string $url
+     *
      * @return Youtube
      */
     public function setUrl($url)
@@ -83,7 +83,7 @@ class Youtube
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string
      */
@@ -93,9 +93,10 @@ class Youtube
     }
 
     /**
-     * Set requestedIp
+     * Set requestedIp.
      *
      * @param string $requestedIp
+     *
      * @return Youtube
      */
     public function setRequestedIp($requestedIp)
@@ -106,7 +107,7 @@ class Youtube
     }
 
     /**
-     * Get requestedIp
+     * Get requestedIp.
      *
      * @return string
      */
