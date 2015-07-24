@@ -23,7 +23,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "tystr/sendgrid-bundle": "^0.1.1",
-        "guzzlehttp/guzzle": "^6.0"
+        "guzzlehttp/guzzle": "^6.0",
+        "knplabs/github-api": "~1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
