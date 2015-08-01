@@ -1,0 +1,78 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Project: Gists {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>My Gist collection</h1>
+            <p class="lead">My notes, tricks, & snippets.</p>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div id="faq" class="col-md-9">
+            <div class="panel-group" id="accordion">
+                {# A Single Gist #}
+                {% for key, gist in gists %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapse-{{ key }}">
+                                {% if gist.description is not empty %}
+                                    {{ gist.description }}
+                                {% else %}
+                                    {% for key, file in gist.files %}
+                                        {% if loop.first %}
+                                            Nameless gist made on {{ gist.created_at|date
+                                        ('F d, Y') }}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse-{{ key }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p class="container-fluid"><code data-gist-id="{{ gist.id }}"></code></p>
+                            {% for file, content in gist.files %}
+                                {#{{ content.raw_url|getMeThisContent }}#}
+                            {% endfor %}
+                        </div>
+                        <div class="panel-footer">
+                            <div class="btn-group btn-group-xs">
+                                <span class="btn">Gist: <a href="{{ gist.html_url }}">{{ gist.id }}</a></span>
+                            </div>
+                            <div class="btn-group btn-group-xs pull-right">
+                                <a class="btn btn-primary" href="#">{{ gist.created_at|date('F m,  Y') }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {# 3-col Right sidebar  #}
+        <div class="col-md-3">
+            <p class="lead">I like to keep usefull code together at
+                <a href="https://gist.github.com/Nav-Appaiya/">my gists</a> repository on github. </p>
+            <p>Sidenote: The gists on this page are freshly fetched by using the <a href="https://developer.github.com/v3/">Github API V3.</a> </p>
+
+            <p>Below are some usefull resources about working with this awsome API.</p>
+            <br>
+            <div class="list-group">
+                <a href="https://developer.github.com/guides/getting-started/" class="list-group-item">Getting started with the Github API v3</a>
+                <a href="https://github.com/KnpLabs/php-github-api" class="list-group-item">The Github Api v3 Library
+                    by KnpLabs</a>
+                <a href="https://developer.github.com/v3/" class="list-group-item">The Official GitHub API v3 Docs</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/2.1/gist-embed.min.js"></script>
+    {{ parent() }}
+{% endblock %}

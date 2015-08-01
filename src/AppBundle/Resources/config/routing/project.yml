@@ -11,5 +11,10 @@ project_todo:
     path:     /todo
     defaults: { _controller: AppBundle:Todo:index }
 
+# Project Gists
+project_gists:
+    path:     /gists
+    defaults: { _controller: AppBundle:Gists:index }
+
 
 
