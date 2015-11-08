@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Nav\CMSBundle\Entity\TimestampableEntity;
 
 /**
  * contact.
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table("contact")
  * @ORM\Entity
  */
-class contact
+class contact extends TimestampableEntity
 {
     /**
      * @var int
