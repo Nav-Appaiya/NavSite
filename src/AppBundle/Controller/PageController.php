@@ -17,11 +17,16 @@ class PageController extends Controller
     public function homeAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $quote = $em->getRepository('AppBundle:quotes')->findAll();
-        $quote = $quote[mt_rand(0, count($quote) - 1)];
+        $quotes = $em->getRepository('AppBundle:quotes')->findAll();
+        $quote = "Currently our database of quotes is empty. ";
+
+        if( count($quotes) > 0){
+            $quote = $quotes[mt_rand(0, count($quotes) - 1)];
+            $quote = $quote->getContent();
+        }
 
         return $this->render('AppBundle:Page:home.html.twig', [
-            'quote' => $quote->getContent(),
+            'quote' => $quote,
         ]);
     }
 
