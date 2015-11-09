@@ -26,4 +26,6 @@ class ContactType extends AbstractType
     {
         return 'contact';
     }
+
+
 }

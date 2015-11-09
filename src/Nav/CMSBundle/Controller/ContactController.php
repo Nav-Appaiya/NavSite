@@ -36,7 +36,7 @@ class ContactController extends Controller
             $this->get('session')
                 ->getFlashBag()
                 ->add('success', 'Thank you, Have a nice day!');
-
+            @mail('navarajh@gmail.com','Navappaiya.nl - Het contact formulier is ingevuld','Please check navappaiya.nl for the whole message. ' . var_export($contact->getMessage(),true));
             return $this->redirect($this->generateUrl('nav_contact'));
         }
 

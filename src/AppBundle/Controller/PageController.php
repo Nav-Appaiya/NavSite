@@ -55,7 +55,6 @@ class PageController extends Controller
         $form = $this->createForm($contactType, $contact);
         if ($request->isMethod('POST')) {
             $form->bind($request);
-
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contact);
