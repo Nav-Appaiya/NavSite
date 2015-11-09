@@ -35,6 +35,9 @@ nav_test:
     path: /test
     defaults: { _controller: "AppBundle:Test:index" }
 
+nav_routing:
+    resource: "@AppBundle/Controller/TestController.php"
+    type:     annotation
 
 # Cron path (runs every 15 min)
 nav_cron:
