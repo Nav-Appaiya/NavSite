@@ -1,0 +1,84 @@
+{% extends '::base-uikit.html.twig' %}
+
+{% block body %}
+
+
+
+    <!-- container to add default spacing. remove if not needed -->
+    <div class="uk-container uk-container-center uk-margin-top">
+        <!-- Navigation -->
+        <nav class="uk-navbar uk-margin-bottom" data-uk-sticky="{clsactive: 'uk-navbar-attached', top:-100, animation: 'uk-animation-slide-top'}">
+            <a href="#" class="uk-navbar-brand">logo link</a>
+            <ul class="uk-navbar-nav" data-uk-scrollspy-nav="{closest: 'li', smoothscroll:{offset:50}}">
+                <li class="uk-active">
+                    <a href="#section1">section 1</a>
+                </li>
+                <li><a href="#section2">section 2</a></li>
+                <li><a href="#section3">section 3</a></li>
+            </ul>
+        </nav>
+        <!-- your content here -->
+        <h1 class="uk-text-center" id="section1">Titre section 1</h1>
+        <img src="http://placehold.it/1200x400"/>
+
+        <hr class="uk-grid-divider" />
+
+        <div class="uk-grid uk-grid-width-medium-1-2">
+            <div>
+                <img src="http://placehold.it/600x400"/>
+            </div>
+            <div>
+                <h2>Hello world</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+            </div>
+        </div>
+
+        <h1 class="uk-text-center" id="section2">Titre section 2</h1>
+        <div class="uk-grid uk-grid-width-medium-1-2">
+            <div>
+                <h2>Hello world</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+            </div>
+            <div>
+                <img src="http://placehold.it/600x200"/>
+            </div>
+        </div>
+        <div class="uk-grid uk-grid-width-medium-1-2">
+            <div>
+                <img src="http://placehold.it/600x400"/>
+            </div>
+            <div>
+                <h2>Hello world</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+            </div>
+
+        </div>
+        <h1 class="uk-text-center" id="section3">Titre section 3</h1>
+        <div class="uk-grid uk-grid-width-medium-1-2">
+            <div>
+                <h2>Hello world</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+            </div>
+            <div>
+                <img src="http://placehold.it/600x200"/>
+            </div>
+        </div>
+        <div class="uk-grid uk-grid-width-medium-1-2">
+            <div>
+                <img src="http://placehold.it/600x400"/>
+            </div>
+            <div>
+                <h2>Hello world</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo corrupti a doloremque odio, est quam inventore. Ipsum unde at, velit praesentium vel odit voluptatem maiores iusto repellendus consectetur beatae animi.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    rel
+{% endblock %}

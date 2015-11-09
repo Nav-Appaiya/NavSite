@@ -10,6 +10,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Core\NavController;
+use Symfony\Component\Routing\Annotation\Route;
 
 class TestController extends NavController
 {
@@ -30,7 +31,14 @@ class TestController extends NavController
         ]);
     }
 
-    public function loadNews()
+    /**
+     * @Route("/uikit")
+     */
+    public function uikitAction()
     {
+
+
+
+        return $this->render('@App/uikit.html.twig');
     }
 }
