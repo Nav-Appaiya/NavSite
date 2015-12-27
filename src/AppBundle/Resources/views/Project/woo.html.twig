@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Project: Gists {% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>Woocommerce Insights</h1>
+            <p class="lead">Getting into your data by using API-Keys.</p>
+        </div>
+	</div>
+	<div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">
+                Datastreams from <br>
+                <a href="http://navappaiya.nl/wooshop">navappaiya.nl/wooshop</a>
+                <small>
+                    <br>
+                    Orders:{{ orders|length }}
+                    <br>
+                    Products:{{ products|length }}
+                    <br>
+                    Customers:{{ customers|length }}
+                    <br>
+                </small>
+            </h1>
+			<br>
+        </div>
+        {{ dump(products,orders,customers) }}
+        <h2 class="lead text-center">Products</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Short description</th>
+                <th>Created at</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in products %}
+                <tr>
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.title }}</td>
+                    <td>{{ p.price }}</td>
+                    <td>{{ p.short_description|striptags }}</td>
+                    <td>{{ p.created_at|date('m-d h:i') }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/2.1/gist-embed.min.js"></script>
+    {{ parent() }}
+{% endblock %}

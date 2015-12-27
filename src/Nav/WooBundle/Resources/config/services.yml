@@ -1,0 +1,9 @@
+parameters:
+    woo_shop:   http://yourshop.com
+    woo_key:    WOO_API_KEY
+    woo_secret: WOO_API_SECRET
+
+services:
+    woo.client:
+        class: WooBundle\Client\WooClient
+        arguments: [%woo_shop%, %woo_key%, %woo_secret%]

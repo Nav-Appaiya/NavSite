@@ -25,7 +25,8 @@
         "tystr/sendgrid-bundle": "^0.1.1",
         "guzzlehttp/guzzle": "^6.0",
         "knplabs/github-api": "~1.4",
-        "happyr/google-api-bundle": "~2.1"
+        "happyr/google-api-bundle": "~2.1",
+        "woothemes/woocommerce-api": "@stable"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
