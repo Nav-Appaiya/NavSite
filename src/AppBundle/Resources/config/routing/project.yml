@@ -23,5 +23,10 @@ project_gists:
     path:     /gists
     defaults: { _controller: AppBundle:Gists:index }
 
+# Project Gists
+project_woo:
+    path:     /woo
+    defaults: { _controller: AppBundle:Woo:index }
+
 
 
