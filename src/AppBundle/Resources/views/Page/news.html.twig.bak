@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <h1>Relevant news and trends
+            <p class="lead"> Staying close to new tools, trends and workflows </p>
+        </h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-8 col-sm-8"> <!-- Tweakers feed left-side 8-col -->
+                <h1>Tweakers <br/>
+                <small> News, reviews, and Pricewatch.</small></h1>
+            <hr/>
+            {% for tweaker in tweakers %}
+                <h4>{{ tweaker.title }}</h4>
+                <p>{{ tweaker.contentSnippet }}</p>
+                <div>
+                    <a href="{{ tweaker.link }}" class="btn btn-primary btn-xs pull-right">
+                        Read more
+                    </a>
+                    <div>
+                        {% for i in tweaker.categories %}
+                            <span class="label label-danger">{{ i }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div> <!-- ./Tweakers feed -->
+
+        <div class="col-sm-4"> <!-- Techzine Tutorials feed left-side 4-col -->
+            <div class="page-header">
+                <h1><small>Techzine</small></h1>
+            </div>
+            {% for post in posts %}
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.contentSnippet }}</p>
+                <div>
+                    <span class="label label-primary">Posted {{ post.publishedDate }}</span>
+                    <div class="pull-right">
+                        {% for i in post.categories %}
+                            <span class="label label-success">{{ i }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div> <!-- ./Techzine feed -->
+    </div>
+
+{% endblock %}

@@ -19,18 +19,14 @@ class TestController extends NavController
         $techzine = $feedburner->load('http://feeds.feedburner.com/Tutorialzine');
         $tweakers = $feedburner->load('http://feeds.feedburner.com/tweakers/nieuws');
 
-        return $this->render('AppBundle::test.html.twig', [
+        return $this->render('AppBundle:Page:news.html.twig', [
             'techzine' => $techzine->getThreeEntries(),
             'tweakers' => $tweakers->getFiveEntries(),
             'greeting' => $this->greeting(),
         ]);
-
-        return $this->render('@App/test.html.twig', [
-            'greeting' => $this->greeting(),
-        ]);
     }
 
-    public function loadNews()
+    public function loadNewsAction()
     {
     }
 }
