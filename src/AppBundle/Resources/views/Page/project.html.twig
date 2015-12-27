@@ -2,20 +2,90 @@
 
 {% block title %}Projects{% endblock %}
 
-{% block body %}
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h1>Projects</h1>
-            <p class="lead">Some of the things I have been working on</p>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="alert alert-dismissible alert-info">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <h4>Working on this!</h4>
-            <p>This Page Is Under Construction, please come back later.</p>
-        </div>
-    </div>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/project.css') }}">
+{% endblock %}
 
+{% block body %}
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-lg-12 text-center">
+        <h1>Projects</h1>
+        <p class="lead">Some of the things I have been working on</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Gists project -->
+    <div class="col-sm-4 col-md-4">
+            <div class="post">
+                <div class="post-img-content">
+                    <img src="{{ asset('bundles/app/img/projects/gists1.png') }}" class="img-responsive" />
+                    <span class="post-title"><b>Fetching and listing my Gists </b><br />
+                        <b>Github API v3</b></span>
+                </div>
+                <div class="content">
+                    <div class="author">
+                        By <b>Nav Appaiya</b> |
+                        <time datetime="2015-12-27">December 27th, 2015</time>
+                    </div>
+                    <div>
+                        I like to keep usefull code together at my gists repository on github. So
+                        just to give you a peek view into them, i've used the github API v3 for
+                        fetching my gists and list them out here for you.
+                    </div><br>
+                    <div>
+                        <a href="{{ path('project_gists') }}" class="btn btn-warning btn-sm">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="post">
+                <div class="post-img-content">
+                    <img src="{{ asset('bundles/app/img/projects/todo.png') }}" class="img-responsive" />
+                    <span class="post-title"><b>Todo list</b><br />
+                        <b>Symfony form handling</b></span>
+                </div>
+                <div class="content">
+                    <div class="author">
+                        By <b>Nav Appaiya</b> |<time datetime="2015-12-27">December 27th, 2015</time>
+                    </div>
+                    <div>
+                        Just some experimenting with symfony forms, routing, and form
+                        handling. Adding new todo's and finishing them off through a done button.
+                        Project was just a experiment while exploring symfony2 and working with forms, entities
+                        and saving/updating them.
+                    </div>
+                    <br>
+                    <div>
+                        <a href="http://www.jquery2dotnet.com/2013/11/share-social-media-round-buttons.html" class="btn btn-primary btn-sm">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="post">
+                <div class="post-img-content">
+                    <img src="http://placehold.it/460x250/47A447/ffffff&text=jQuery" class="img-responsive" />
+                    <span class="post-title"><b>Make a Image Blur Effects With</b><br />
+                        <b>CSS3 Blur</b></span>
+                </div>
+                <div class="content">
+                    <div class="author">
+                        By <b>Bhaumik</b> |
+                        <time datetime="2014-01-20">January 20th, 2014</time>
+                    </div>
+                    <div>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </div>
+                    <div>
+                        <a href="http://www.jquery2dotnet.com/2013/07/cool-social-sharing-button-using-css3.html" class="btn btn-success btn-sm">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

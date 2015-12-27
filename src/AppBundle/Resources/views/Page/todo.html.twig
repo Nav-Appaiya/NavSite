@@ -9,6 +9,15 @@
             <p class="lead"> I <3 Lists</p>
         </div>
     </div>
+    <div class="row">
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
 
     <hr>
 
@@ -24,8 +33,8 @@
         <div class="col-lg-6">
             {% for todo in todos %}
                 <div class="alert alert-info alert-dismissable">
-                    <a href="#" class="btn btn-xs btn-primary pull-right">Done!</a>
-                    {{ todo.createdAt|date }} : {{ todo.content }}
+                    <a href="{{ path('project_todo_delete', {'todo': todo.id})   }}" class="btn btn-xs btn-primary pull-right">Done!</a>
+                    <small><i>{{ todo.createdAt|date }}</i></small> <h4>{{ todo.content }}</h4>
                 </div>
             {% endfor %}
 

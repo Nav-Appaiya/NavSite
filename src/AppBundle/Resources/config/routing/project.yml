@@ -6,10 +6,17 @@ project_index:
     path: /
     defaults: { _controller: AppBundle:Page:project }
 
-# Projecttodo
+# Projecttodo - overview
 project_todo:
     path:     /todo
     defaults: { _controller: AppBundle:Todo:index }
+
+# Projecttodo - delete
+project_todo_delete:
+    path:      /todo/delete/{todo}
+    defaults:
+        _controller: AppBundle:Todo:deleteThisTodo
+        todo: 1
 
 # Project Gists
 project_gists:

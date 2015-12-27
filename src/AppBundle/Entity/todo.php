@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Nav\CMSBundle\Entity\TimestampableEntity;
 
 /**
  * Project todo.
@@ -10,16 +11,17 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="todo")
  * @ORM\Entity
  */
-class todo
+class todo extends TimestampableEntity
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string", length=36)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
+
 
     /**
      * @var string
@@ -27,13 +29,6 @@ class todo
      * @ORM\Column(name="content", type="string", length=255, nullable=false)
      */
     private $content;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
-     */
-    private $createdAt;
 
     /**
      * @var \DateTime
@@ -50,8 +45,6 @@ class todo
     private $ip;
 
     /**
-     * Get id.
-     *
      * @return int
      */
     public function getId()
@@ -60,22 +53,14 @@ class todo
     }
 
     /**
-     * Set content.
-     *
-     * @param string $content
-     *
-     * @return todo
+     * @param int $id
      */
-    public function setContent($content)
+    public function setId($id)
     {
-        $this->content = $content;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get content.
-     *
      * @return string
      */
     public function getContent()
@@ -84,74 +69,42 @@ class todo
     }
 
     /**
-     * Set createdAt.
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return todo
+     * @param string $content
      */
-    public function setCreatedAt()
+    public function setContent($content)
     {
-        $this->createdAt = new \DateTime('now');
-
-        return $this;
+        $this->content = $content;
     }
 
     /**
-     * Get createdAt.
-     *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getDeletedAt()
     {
-        return $this->createdAt;
+        return $this->deletedAt;
     }
 
     /**
-     * Set deletedAt.
-     *
      * @param \DateTime $deletedAt
-     *
-     * @return todo
      */
-    public function setDeletedAt()
+    public function setDeletedAt($deletedAt)
     {
-        $this->deletedAt = new \DateTime('now');
-
-        return $this;
+        $this->deletedAt = $deletedAt;
     }
 
     /**
-     * Get updatedAt.
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * Set ip.
-     *
-     * @param string $ip
-     *
-     * @return todo
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Get ip.
-     *
      * @return string
      */
     public function getIp()
     {
         return $this->ip;
+    }
+
+    /**
+     * @param string $ip
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
     }
 }
