@@ -1,0 +1,4 @@
+navsite:
+    resource: "@AppBundle/Controller/SiteController.php"
+    prefix:   /v2
+    type:     annotation

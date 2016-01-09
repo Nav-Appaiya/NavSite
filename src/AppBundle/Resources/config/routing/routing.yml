@@ -6,6 +6,9 @@ project:
     resource: "@AppBundle/Resources/config/routing/project.yml"
     prefix:   /project
 
+nav_bootstrap:
+    resource: '@AppBundle/Resources/config/routing/routing_v2.yml'
+
 # Homepage
 nav_index:
     path:     /
@@ -31,10 +34,14 @@ nav_error:
     path: /error
     defaults: { _controller: "AppBundle:Page:error" }
 
-nav_test:
-    path: /test
-    defaults: { _controller: "AppBundle:Test:index" }
+#nav_test:
+#    path: /test
+#    defaults: { _controller: "AppBundle:Test:index" }
 
+nav_test:
+    resource: "@AppBundle/Controller/TestController.php"
+    prefix:   /test
+    type:     annotation
 
 # Cron path (runs every 15 min)
 nav_cron:

@@ -54,10 +54,10 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{ path('nav_news') }}"><i class="fa fa-newspaper-o fa-fw"></i> News</a>
+                    <a href="{{ path('nav_news') }}"><i class="fa fa-newspaper-o fa-fw"></i>News</a>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">Projects <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false"><i class="fa fa-github-alt fa-fw"></i>&nbsp;Projects </a>
                     <ul class="dropdown-menu" aria-labelledby="themes">
                         <li><a href="{{ path('project_index') }}">Overview</a></li>
                         <li class="divider"></li>
@@ -76,29 +76,47 @@
                 </li>
             </ul>
 
-            <!-- Right side Navigation -->
+            <!-- Right side User Navigation -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown right">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user"></i>
-                        {{ app.user }}
-                    </a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Guest  &nbsp;<span class="fa fa-user"></span></a>
                     <ul class="dropdown-menu">
-                        {% if app.user == false %}
-                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in fa-fw"></i>Login</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-pencil fa-fw"></i>Register</a></li>
-                            <li class="divider"></li>
-                        {% endif %}
-                        <li><a href="{{ path('project_index') }}"><i class="fa fa-folder-open fa-fw"></i> Projects</a></li>
-                        <li><a href="{{ path('nav_about') }}"><i class="fa fa-info fa-fw"></i> About me</a></li>
-                        <li><a href="http://github.com/nav-appaiya"><i class="fa fa-github fa-fw"></i> Github me!</a></li>
-                        <li><a href="{{ path('nav_contact') }}"><i class="fa fa-question fa-fw"></i> Contact  me!</a></li>
-                        {% if app.user %}
-                            <li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                        {% endif %}
+                        <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Favourites Snippets <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                     </ul>
                 </li>
             </ul>
+
+
+            {#<ul class="nav navbar-nav navbar-right">#}
+                {#<li class="dropdown right">#}
+                    {#<a href="" class="dropdown-toggle" data-toggle="dropdown">#}
+                        {#<i class="fa fa-user"></i>#}
+                        {#{{ app.user }}#}
+                    {#</a>#}
+                    {#<ul class="dropdown-menu">#}
+                        {#{% if app.user == false %}#}
+                            {#<li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-in fa-fw"></i>Login</a></li>#}
+                            {#<li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-pencil fa-fw"></i>Register</a></li>#}
+                            {#<li class="divider"></li>#}
+                        {#{% endif %}#}
+                        {#<li><a href="{{ path('project_index') }}"><i class="fa fa-folder-open fa-fw"></i> Projects</a></li>#}
+                        {#<li><a href="{{ path('nav_about') }}"><i class="fa fa-info fa-fw"></i> About me</a></li>#}
+                        {#<li><a href="http://github.com/nav-appaiya"><i class="fa fa-github fa-fw"></i> Github me!</a></li>#}
+                        {#<li><a href="{{ path('nav_contact') }}"><i class="fa fa-question fa-fw"></i> Contact  me!</a></li>#}
+                        {#{% if app.user %}#}
+                            {#<li><a href="{{ path('fos_user_security_login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>#}
+                        {#{% endif %}#}
+                    {#</ul>#}
+                {#</li>#}
+            {#</ul>#}
         </div>
     </div>
 </div>
