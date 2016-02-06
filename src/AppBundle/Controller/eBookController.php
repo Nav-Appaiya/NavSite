@@ -44,13 +44,13 @@ class eBookController extends Controller
                 $foundBook->setCreatedAt(new \DateTime());
             }
             $foundBook->setTitle($book->Title);
+            $bookTitles[] = $book->Title;
             $foundBook->setSubtitle(isset($book->SubTitle) ? $book->SubTitle : '');
             $foundBook->setDescription($book->Description);
             $foundBook->setImage($book->Image);
             $foundBook->setUpdatedAt(new \DateTime());
             $this->getDoctrine()->getManager()->persist($foundBook);
             $this->getDoctrine()->getManager()->flush();
-
             $bookCounter++;
         }
 
@@ -59,5 +59,10 @@ class eBookController extends Controller
         }
         exit;
 
+    }
+
+    public function getBooksArray()
+    {
+        return array('Book1', 'Book2', 'Book3');
     }
 }
