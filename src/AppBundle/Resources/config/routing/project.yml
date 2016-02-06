@@ -29,4 +29,7 @@ project_woo:
     defaults: { _controller: AppBundle:Woo:index }
 
 
-
+# Project IT-eBooks
+project_ebooks:
+    path: /ebooks
+    defaults: { _controller: AppBundle:eBook:index }
