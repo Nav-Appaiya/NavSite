@@ -7,7 +7,11 @@
  */
 
 namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
 
 /**
@@ -25,13 +29,50 @@ use Doctrine\ORM\Mapping\Table;
  */
 class Book
 {
+    /**
+     * @var int
+     *
+     * @Id()
+     * @Column(name="id", type="string")
+     * @GeneratedValue(strategy="UUID")
+     */
     protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     * @Column(type="string")
+     */
     protected $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subtitle", type="string", length=255)
+     * @Column(type="string")
+     */
     protected $subtitle;
+
+    /**
+     * @Column(type="string")
+     */
     protected $description;
+    /**
+     * @Column(type="string")
+     */
     protected $image;
+    /**
+     * @Column(type="string")
+     */
     protected $isbn;
+    /**
+     * @Column(type="datetime")
+     */
     protected $created_at;
+    /**
+     * @Column(type="datetime")
+     */
     protected $updated_at;
 
     /**
