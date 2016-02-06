@@ -15,3 +15,6 @@
 app/.DS_Store
 composer.lock
 wooshop/*
+/template
+/bikesalvage
+/opencart-2-hello-world-module

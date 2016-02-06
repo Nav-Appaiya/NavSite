@@ -1,5 +1,6 @@
 Navappaiya.nl
 ===
+[![Build Status](https://travis-ci.org/Nav-Appaiya/NavSite.svg?branch=master)](https://travis-ci.org/Nav-Appaiya/NavSite)
 Homepage 			
 - Done:
 	- Latest News feed from Techzine feed
