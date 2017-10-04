@@ -26,7 +26,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "knplabs/github-api": "~1.4",
         "happyr/google-api-bundle": "~2.1",
-        "woothemes/woocommerce-api": "@stable"
+        "woothemes/woocommerce-api": "@stable",
+        "phpunit/phpunit": "3.7.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
